@@ -2,13 +2,16 @@
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "prefix": {
+            "type": "string"
+        },
         "mocOnPremResourceGroup": {
             "type": "string",
-            "defaultValue": "site-to-site-mock-prem"
+            "defaultValue": "[concat(parameters('prefix'), 'moc-onprem')]"
         },
         "azureNetworkResourceGroup": {
             "type": "string",
-            "defaultValue": "site-to-site-azure-network"
+            "defaultValue": "[concat(parameters('prefix'), 'azure-network')]"
         },
         "adminUserName": {
             "type": "string",
@@ -24,7 +27,7 @@
         },
         "resourceGrouplocation": {
             "type": "string",
-            "defaultValue": "eastus"
+            "defaultValue": "canadacentral"
         }
     },
     "variables": {
