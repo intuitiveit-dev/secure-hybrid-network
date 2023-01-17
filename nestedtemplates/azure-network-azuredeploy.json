@@ -630,7 +630,7 @@
                         "rules": [
                             {
                             "description": "inbound-http",
-                            "destinationAddresses": ["*"],
+                            "destinationAddresses": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('azureFirewall').publicIPAddressName)).ipAddress]",
                             "destinationPorts": [ "80" ],
                             "name": "inbound-http",
                             "protocols": [ "TCP", "UDP" ],
@@ -979,7 +979,7 @@
                     "apiVersion": "2017-05-01-preview",
                     "name": "[concat('Microsoft.Insights/default', variables('logAnalyticsWorkspace'))]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]",
+                        //"[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]",
                         "[resourceId('Microsoft.OperationalInsights/workspaces', variables('logAnalyticsWorkspace'))]"
                     ],
                     "properties": {
