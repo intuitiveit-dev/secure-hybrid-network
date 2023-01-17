@@ -5,9 +5,9 @@
         "resourceNamePrefix": {
             "type": "string"
         },
-        "domainNameLabel": {
-            "type": "string"
-        },
+        // "domainNameLabel": {
+        //     "type": "string"
+        // },
         "adminUserName": {
             "type": "string",
             "defaultValue": "azureadmin"

@@ -8,9 +8,9 @@
                 "description": "A string that will be added to the beginning of resource group names and resources"
             }
         },
-        "domainNameLabel": {
-            "type": "string"
-        },
+        // "domainNameLabel": {
+        //     "type": "string"
+        // },
         "spokeNetworkAddressPrefix": {
             "type": "string",
             "metadata": {
@@ -123,10 +123,10 @@
                     },
                     "resourceNamePrefix": {
                         "value": "[parameters('resourceNamePrefix')]"
-                    },
-                    "domainNameLabel": {
-                        "type": "[parameters('domainNameLabel')]"
                     }
+                    // "domainNameLabel": {
+                    //     "type": "[parameters('domainNameLabel')]"
+                    // }
                 }
             }
         },
