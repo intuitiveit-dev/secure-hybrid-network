@@ -8,7 +8,7 @@
                 "description": "A string that will be added to the beginning of resource group names and resources"
             }
         },
-        "spokeNetworkAddressSpace": {
+        "spokeNetworkAddressPrefix": {
             "type": "string",
             "metadata": {
                 "description": "Address space to use for Azure spoke network"
@@ -108,6 +108,9 @@
                     },
                     "location": {
                         "value": "[parameters('resourceGrouplocation')]"
+                    },
+                    "spokeNetworkAddressPrefix": {
+                        "value": "[parameters('spokeNetworkAddressPrefix')]"
                     }
                 }
             }
