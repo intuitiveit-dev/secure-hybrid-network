@@ -30,7 +30,7 @@
         "hubNetwork": {
             "type": "object",
             "defaultValue": {
-                "name": "vnet-hub",
+                "name": "[concat('vnet-', parameters('prefix'), '-hub')]",
                 "addressPrefix": "10.0.0.0/20"
             }
         },
@@ -40,17 +40,17 @@
         "spokeNetwork": {
             "type": "object",
             "defaultValue": {
-                "name": "vnet-spoke",
+                "name": "[concat('vnet-', parameters('prefix'), '-spoke')]",
                 "addressPrefix": "[parameters('spokeNetworkAddressPrefix')]",
-                "subnetName": "snet-spoke-resources",
-                "subnetPrefix": "10.100.0.0/16",
-                "subnetNsgName": "nsg-spoke-resources"
+                "subnetName": "[concat('snet-', parameters('prefix'), '-spoke-resources')]",
+                "subnetPrefix": "[parameters('spokeNetworkAddressPrefix')]",
+                "subnetNsgName": "[concat('nsg-', parameters('prefix'), '-spoke-resources')]"
             }
         },
         "vpnGateway": {
             "type": "object",
             "defaultValue": {
-                "name": "vpn-azure-network",
+                "name": "[concat('vpn-', parameters('prefix'), '-azure-network')]",
                 "subnetName": "GatewaySubnet",
                 "subnetPrefix": "10.0.2.0/27",
                 "publicIPAddressName": "pip-vgn-gateway"
