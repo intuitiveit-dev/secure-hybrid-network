@@ -771,8 +771,8 @@
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]"
-                //"[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]",
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -782,12 +782,12 @@
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('spokeNetwork').name, parameters('spokeNetwork').subnetName)]"
-                            }
-                            // "loadBalancerBackendAddressPools": [
-                            //     {
-                            //         "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').backendName)]"
-                            //     }
-                            // ]
+                            },
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').backendName)]"
+                                }
+                            ]
                         }
                     }
                 ]
@@ -908,7 +908,7 @@
             }
         },
         {
-            "condition": "[not(equals(parameters('windowsVMCount'), 1))]",
+            //"condition": "[not(equals(parameters('windowsVMCount'), 1))]",
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2020-05-01",
             "name": "[parameters('internalLoadBalancer').name]",
