@@ -630,12 +630,12 @@
                         "rules": [
                             {
                             "description": "inbound-http",
-                            "destinationAddresses": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('azureFirewall').publicIPAddressName)).ipAddress]",
+                            "destinationAddresses": ["[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('azureFirewall').publicIPAddressName)).ipAddress]"],
                             "destinationPorts": [ "80" ],
                             "name": "inbound-http",
                             "protocols": [ "TCP", "UDP" ],
                             "sourceAddresses": [ "*" ],
-                            "translatedAddress": "[if(not(equals(parameters('windowsVMCount'), 1)), '10.200.0.4', '10.200.0.5')]",
+                            "translatedAddress": "10.200.0.4",
                             "translatedPort": "80"
                             }
                         ]
