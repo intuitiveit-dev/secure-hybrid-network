@@ -621,19 +621,18 @@
                 ],
                 "natRuleCollections": [
                     {
-                        "id": "inbound-dnat",
                         "name": "inbound-dnat",
                         "properties": {
                         "action": {
                             "type": "Dnat"
                         },
-                        "priority": "300",
+                        "priority": 300,
                         "rules": [
                             {
                             "description": "inbound-http",
                             "destinationAddresses": "[parameters('azureFirewall').publicIPAddress]",
                             "destinationPorts": [ "80" ],
-                            "name": "string",
+                            "name": "inbound-http",
                             "protocols": [ "TCP", "UDP" ],
                             "sourceAddresses": [ "*" ],
                             "translatedAddress": "[if(not(equals(parameters('windowsVMCount'), '1')), '10.200.0.4', '10.200.0.5')]",
