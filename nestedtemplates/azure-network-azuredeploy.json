@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "prefix": {
+        "resourceNamePrefix": {
             "type": "string"
         },
         "adminUserName": {
@@ -30,7 +30,7 @@
         "hubNetwork": {
             "type": "object",
             "defaultValue": {
-                "name": "[concat('vnet-', parameters('prefix'), '-hub')]",
+                "name": "[concat('vnet-', parameters('resourceNamePrefix'), '-hub')]",
                 "addressPrefix": "10.0.0.0/20"
             }
         },
@@ -40,17 +40,17 @@
         "spokeNetwork": {
             "type": "object",
             "defaultValue": {
-                "name": "[concat('vnet-', parameters('prefix'), '-spoke')]",
+                "name": "[concat('vnet-', parameters('resourceNamePrefix'), '-spoke')]",
                 "addressPrefix": "[parameters('spokeNetworkAddressPrefix')]",
-                "subnetName": "[concat('snet-', parameters('prefix'), '-spoke-resources')]",
+                "subnetName": "[concat('snet-', parameters('resourceNamePrefix'), '-spoke-resources')]",
                 "subnetPrefix": "[parameters('spokeNetworkAddressPrefix')]",
-                "subnetNsgName": "[concat('nsg-', parameters('prefix'), '-spoke-resources')]"
+                "subnetNsgName": "[concat('nsg-', parameters('resourceNamePrefix'), '-spoke-resources')]"
             }
         },
         "vpnGateway": {
             "type": "object",
             "defaultValue": {
-                "name": "[concat('vpn-', parameters('prefix'), '-azure-network')]",
+                "name": "[concat('vpn-', parameters('resourceNamePrefix'), '-azure-network')]",
                 "subnetName": "GatewaySubnet",
                 "subnetPrefix": "10.0.2.0/27",
                 "publicIPAddressName": "pip-vgn-gateway"

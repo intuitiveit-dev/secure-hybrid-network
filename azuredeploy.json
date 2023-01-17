@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "prefix": {
+        "resourceNamePrefix": {
             "type": "string",
             "metadata": {
                 "description": "A string that will be added to the beginning of resource group names and resources"
@@ -16,11 +16,11 @@
         },
         "mocOnPremResourceGroup": {
             "type": "string",
-            "defaultValue": "[concat(parameters('prefix'), '-moc-onprem')]"
+            "defaultValue": "[concat(parameters('resourceNamePrefix'), '-moc-onprem')]"
         },
         "azureNetworkResourceGroup": {
             "type": "string",
-            "defaultValue": "[concat(parameters('prefix'), '-azure-network')]"
+            "defaultValue": "[concat(parameters('resourceNamePrefix'), '-azure-network')]"
         },
         "adminUserName": {
             "type": "string",
@@ -118,8 +118,8 @@
                     "windowsVMCount": {
                         "value": "[parameters('windowsVMCount')]"
                     },
-                    "prefix": {
-                        "value": "[parameters('prefix')]"
+                    "resourceNamePrefix": {
+                        "value": "[parameters('resourceNamePrefix')]"
                     }
                 }
             }
