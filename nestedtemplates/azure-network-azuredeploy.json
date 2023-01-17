@@ -635,7 +635,7 @@
                             "name": "inbound-http",
                             "protocols": [ "TCP", "UDP" ],
                             "sourceAddresses": [ "*" ],
-                            "translatedAddress": "[if(not(equals(parameters('windowsVMCount'), '1')), '10.200.0.4', '10.200.0.5')]",
+                            "translatedAddress": "[if(not(equals(parameters('windowsVMCount'), 1)), '10.200.0.4', '10.200.0.5')]",
                             "translatedPort": "80"
                             }
                         ]
@@ -908,7 +908,7 @@
             }
         },
         {
-            "condition": "[not(equals(parameters('windowsVMCount'), '1'))]",
+            "condition": "[not(equals(parameters('windowsVMCount'), 1))]",
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2020-05-01",
             "name": "[parameters('internalLoadBalancer').name]",
