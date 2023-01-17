@@ -3,15 +3,24 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "A string that will be added to the beginning of resource group names and resources"
+            }
+        },
+        "spokeNetworkAddressSpace": {
+            "type": "string",
+            "metadata": {
+                "description": "Address space to use for Azure spoke network"
+            }
         },
         "mocOnPremResourceGroup": {
             "type": "string",
-            "defaultValue": "[concat(parameters('prefix'), 'moc-onprem')]"
+            "defaultValue": "[concat(parameters('prefix'), '-moc-onprem')]"
         },
         "azureNetworkResourceGroup": {
             "type": "string",
-            "defaultValue": "[concat(parameters('prefix'), 'azure-network')]"
+            "defaultValue": "[concat(parameters('prefix'), '-azure-network')]"
         },
         "adminUserName": {
             "type": "string",
