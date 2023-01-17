@@ -782,12 +782,12 @@
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('spokeNetwork').name, parameters('spokeNetwork').subnetName)]"
-                            },
-                            "loadBalancerBackendAddressPools": [
-                                {
-                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').backendName)]"
-                                }
-                            ]
+                            }
+                            // "loadBalancerBackendAddressPools": [
+                            //     {
+                            //         "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').backendName)]"
+                            //     }
+                            // ]
                         }
                     }
                 ]
