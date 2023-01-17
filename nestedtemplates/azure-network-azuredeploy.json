@@ -92,15 +92,15 @@
                 "routeNameFirewall": "gateway-to-firewall"
             }
         },
-        "internalLoadBalancer": {
-            "type": "object",
-            "defaultValue": {
-                "name": "lb-internal",
-                "backendName": "lb-backend",
-                "fontendName": "lb-frontend",
-                "probeName": "lb-probe"
-            }
-        },
+        // "internalLoadBalancer": {
+        //     "type": "object",
+        //     "defaultValue": {
+        //         "name": "lb-internal",
+        //         "backendName": "lb-backend",
+        //         "fontendName": "lb-frontend",
+        //         "probeName": "lb-probe"
+        //     }
+        // },
         "location": {
             "type": "string"
         }
