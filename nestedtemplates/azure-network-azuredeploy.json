@@ -5,6 +5,9 @@
         "resourceNamePrefix": {
             "type": "string"
         },
+        "domainNameLabel": {
+            "type": "string"
+        },
         "adminUserName": {
             "type": "string",
             "defaultValue": "azureadmin"
@@ -582,7 +585,10 @@
                 "name": "Standard"
             },
             "properties": {
-                "publicIPAllocationMethod": "Static"
+                "publicIPAllocationMethod": "Static",
+                    "dnsSettings": {
+                        "domainNameLabel": "[parameters('domainNameLabel')]"
+                    }
             }
         },
         {
@@ -610,6 +616,30 @@
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('hubNetwork').name, parameters('azureFirewall').subnetName)]"
                             }
+                        }
+                    }
+                ],
+                "natRuleCollections": [
+                    {
+                        "id": "inbound-dnat",
+                        "name": "inbound-dnat",
+                        "properties": {
+                        "action": {
+                            "type": "Dnat"
+                        },
+                        "priority": "300",
+                        "rules": [
+                            {
+                            "description": "inbound-http",
+                            "destinationAddresses": "parameters('azureFirewall').publicIPAddress",
+                            "destinationPorts": [ "80" ],
+                            "name": "string",
+                            "protocols": [ "TCP", "UDP" ],
+                            "sourceAddresses": [ "*" ],
+                            "translatedAddress": "[if(not(equals(parameters('windowsVMCount'), '1')), '10.200.0.4', '10.200.0.5')]",
+                            "translatedPort": "80"
+                            }
+                        ]
                         }
                     }
                 ],
@@ -879,6 +909,7 @@
             }
         },
         {
+            "condition": "[not(equals(parameters('windowsVMCount'), '1'))]",
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2020-05-01",
             "name": "[parameters('internalLoadBalancer').name]",
