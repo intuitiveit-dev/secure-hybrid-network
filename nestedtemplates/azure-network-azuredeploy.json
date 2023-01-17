@@ -587,7 +587,7 @@
             "properties": {
                 "publicIPAllocationMethod": "Static",
                     "dnsSettings": {
-                        "domainNameLabel": "[parameters('domainNameLabel')]"
+                        //"domainNameLabel": "[parameters('domainNameLabel')]"
                     }
             }
         },
