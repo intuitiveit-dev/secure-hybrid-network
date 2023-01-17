@@ -2,6 +2,9 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "prefix": {
+            "type": "string"
+        },
         "adminUserName": {
             "type": "string",
             "defaultValue": "azureadmin"
@@ -11,7 +14,7 @@
         },
         "windowsVMCount": {
             "type": "int",
-            "defaultValue": 2,
+            //"defaultValue": 2,
             "metadata": {
                 "description": "The count of Windows virtual machines to create."
             }

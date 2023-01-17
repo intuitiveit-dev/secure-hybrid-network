@@ -37,6 +37,9 @@
         "resourceGrouplocation": {
             "type": "string",
             "defaultValue": "canadacentral"
+        },
+        "windowsVMCount": {
+            "type": "int"
         }
     },
     "variables": {
@@ -111,6 +114,12 @@
                     },
                     "spokeNetworkAddressPrefix": {
                         "value": "[parameters('spokeNetworkAddressPrefix')]"
+                    },
+                    "windowsVMCount": {
+                        "value": "[parameters('windowsVMCount')]"
+                    },
+                    "prefix": {
+                        "value": "[parameters('prefix')]"
                     }
                 }
             }
