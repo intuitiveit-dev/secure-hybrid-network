@@ -630,7 +630,7 @@
                         "rules": [
                             {
                             "description": "inbound-http",
-                            "destinationAddresses": "*",
+                            "destinationAddresses": ["*"],
                             "destinationPorts": [ "80" ],
                             "name": "inbound-http",
                             "protocols": [ "TCP", "UDP" ],
