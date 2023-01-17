@@ -585,10 +585,10 @@
                 "name": "Standard"
             },
             "properties": {
-                "publicIPAllocationMethod": "Static",
-                    "dnsSettings": {
+                "publicIPAllocationMethod": "Static"
+                    //"dnsSettings": {
                         //"domainNameLabel": "[parameters('domainNameLabel')]"
-                    }
+                    //}
             }
         },
         {
