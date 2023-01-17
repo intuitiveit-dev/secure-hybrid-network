@@ -635,7 +635,7 @@
                             "name": "inbound-http",
                             "protocols": [ "TCP", "UDP" ],
                             "sourceAddresses": [ "*" ],
-                            "translatedAddress": "10.200.0.4",
+                            "translatedAddress": "[reference(resourceId('Microsoft.Network/loadBalancers/frontendIpConfigurations', parameters('internalLoadBalancer').fontendName)).frontendIPConfiguration.properties.subnet]",
                             "translatedPort": "80"
                             }
                         ]
