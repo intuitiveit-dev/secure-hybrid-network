@@ -631,7 +631,7 @@
                         "rules": [
                             {
                             "description": "inbound-http",
-                            "destinationAddresses": "parameters('azureFirewall').publicIPAddress",
+                            "destinationAddresses": "[parameters('azureFirewall').publicIPAddress]",
                             "destinationPorts": [ "80" ],
                             "name": "string",
                             "protocols": [ "TCP", "UDP" ],
