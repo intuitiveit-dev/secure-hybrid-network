@@ -84,7 +84,7 @@ az deployment sub create \
 | mocOnpremNetwork | object | Object representing the configuration of the mock on-prem network. | name, addressPrefix, mgmt, subnetPrefix |
 | mocOnpremGateway | object | Object representing the configuration of the VPN gateway. | name, subnetName, subnetPrefix, publicIPAddressName |
 | bastionHost | object | Object representing the configuration of the Bastion host. | name, subnetName, subnetPrefix, publicIPAddressName, nsgName |
-| vmSize | string | Size of the load-balanced virtual machines. | Standard_A1_v2 |
+| vmSize | string | Size of the load-balanced virtual machines. | Standard_D4s_v3 |
 | configureSitetosite | bool | Condition for configuring a site-to-site VPN connection. | true |
 | location | string | Location to be used for all resources. | null |
 
