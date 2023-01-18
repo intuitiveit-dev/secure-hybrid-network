@@ -18,12 +18,12 @@
             }
         },
         "mocOnPremResourceGroup": {
-            "type": "string",
-            "defaultValue": "[concat(parameters('resourceNamePrefix'), '-moc-onprem')]"
+            "type": "string"
+            //"defaultValue": "[concat(parameters('resourceNamePrefix'), '-moc-onprem')]"
         },
         "azureNetworkResourceGroup": {
-            "type": "string",
-            "defaultValue": "[concat(parameters('resourceNamePrefix'), '-azure-network')]"
+            "type": "string"
+            //"defaultValue": "[concat(parameters('resourceNamePrefix'), '-azure-network')]"
         },
         "adminUserName": {
             "type": "string",
