@@ -8,7 +8,7 @@ products:
   - azure-vpn-gateway
   - azure-virtual-network
   - azure-firewall
-description: This sample deploys a hub and spoke network, a mock on-premises network, and connects both with a site-to-site VPN connection. 
+description: This sample deploys a hub and spoke network, a mock on-premises network, and connects both with a site-to-site VPN connection 
 ---
 
 # Secure hybrid network
