@@ -771,17 +771,15 @@
             "apiVersion": "2020-05-01",
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "if(greater(parameters('windowsVMCount'), 1), 
-                [
-                    resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name), 
-                    resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)
-                ], 
-                [
-                    resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)
-                ]
-                )"
-            ],
+"dependsOn": [
+    "if(greater(parameters('windowsVMCount'), 1), 
+        [
+            resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name),
+            resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)
+        ], 
+        resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)
+    )"
+],
             // "dependsOn": [
             //     "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]",
             //     "[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]"
