@@ -772,13 +772,8 @@
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
             "location": "[parameters('location')]",
 "dependsOn": [
-    "if(greater(parameters('windowsVMCount'), 1), 
-        [
-            resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name),
-            resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)
-        ], 
-        resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)
-    )"
+    "Microsoft.Network/virtualNetworks/spokeNetwork",
+    "[if(greater(parameters('windowsVMCount'), 1), concat('Microsoft.Network/loadBalancers/', parameters('internalLoadBalancer').name), '')]"
 ],
             // "dependsOn": [
             //     "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]",
