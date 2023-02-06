@@ -635,7 +635,7 @@
                             "name": "inbound-http",
                             "protocols": [ "TCP", "UDP" ],
                             "sourceAddresses": [ "*" ],
-                            "translatedAddress": "10.100.0.4", //"[reference(resourceId('Microsoft.Network/loadBalancers/frontendIpConfigurations', parameters('internalLoadBalancer').Name, parameters('internalLoadBalancer').fontendName)).frontendIPConfiguration.properties.subnet]",
+                            "translatedAddress": "[if(greater(parameters('WindowsVMCount'), 1), reference(resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', parameters('internalLoadBalancer').Name, parameters('internalLoadBalancer').frontendName)).properties.privateIPAddress, concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.4'))]",
                             "translatedPort": "80"
                             }
                         ]
@@ -766,6 +766,7 @@
             ]
         },
         {
+            "condition": "[greater(parameters('WindowsVMCount'), 1)]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2020-05-01",
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
@@ -908,7 +909,7 @@
             }
         },
         {
-            //"condition": "[not(equals(parameters('windowsVMCount'), 1))]",
+            "condition": "[greater(parameters('windowsVMCount'), 1)]",
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2020-05-01",
             "name": "[parameters('internalLoadBalancer').name]",
@@ -975,6 +976,7 @@
             },
             "resources": [
                 {
+                    "condition": "[greater(parameters('WindowsVMCount'), 1)]",
                     "type": "providers/diagnosticSettings",
                     "apiVersion": "2017-05-01-preview",
                     "name": "[concat('Microsoft.Insights/default', variables('logAnalyticsWorkspace'))]",
