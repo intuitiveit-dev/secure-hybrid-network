@@ -1,0 +1,55 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceNamePrefix": {
+            "value": "gnu-prod",
+            "metadata": {
+                "description": "This is a prefix used for naming Azure resources.",
+                "displayName": "Resource Name Prefix"
+            }
+        },
+        "spokeNetworkAddressPrefix": {
+            "value": "10.100.0.0/16",
+            "metadata": {
+                "description": "The address prefix for the spoke network.",
+                "displayName": "Spoke Network Address Prefix"
+            }
+        },
+        "mocOnPremResourceGroup": {
+            "value": "gnu-prod-moc-onprem",
+            "metadata": {
+                "description": "The resource group for the MOC On-Prem resources.",
+                "displayName": "MOC On-Prem Resource Group"
+            }
+        },
+        "azureNetworkResourceGroup": {
+            "value": "gnu-prod-azure-network",
+            "metadata": {
+                "description": "The resource group for the Azure Network resources.",
+                "displayName": "Azure Network Resource Group"
+            }
+        },
+        "adminUserName": {
+            "value": "intuitiveit",
+            "metadata": {
+                "description": "The administrator username.",
+                "displayName": "Admin User Name"
+            }
+        },
+        "adminPassword": {
+            "value": "*****************",
+            "metadata": {
+                "description": "The administrator password.",
+                "displayName": "Admin Password"
+            }
+        },
+        "windowsVMCount": {
+            "value": 1,
+            "metadata": {
+                "description": "The number of Windows virtual machines to be deployed.",
+                "displayName": "Windows VM Count"
+            }
+        }
+    }
+}
