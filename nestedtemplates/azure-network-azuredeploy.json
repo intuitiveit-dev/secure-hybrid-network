@@ -586,9 +586,9 @@
             },
             "properties": {
                 "publicIPAllocationMethod": "Static"
-                    //"dnsSettings": {
-                        //"domainNameLabel": "[parameters('domainNameLabel')]"
-                    //}
+                //"dnsSettings": {
+                //"domainNameLabel": "[parameters('domainNameLabel')]"
+                //}
             }
         },
         {
@@ -623,22 +623,22 @@
                     {
                         "name": "inbound-dnat",
                         "properties": {
-                        "action": {
-                            "type": "Dnat"
-                        },
-                        "priority": 300,
-                        "rules": [
-                            {
-                            "description": "inbound-http",
-                            "destinationAddresses": ["[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('azureFirewall').publicIPAddressName)).ipAddress]"],
-                            "destinationPorts": [ "80" ],
-                            "name": "inbound-http",
-                            "protocols": [ "TCP", "UDP" ],
-                            "sourceAddresses": [ "*" ],
-                            "translatedAddress": "[if(greater(parameters('WindowsVMCount'), 1), reference(resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', parameters('internalLoadBalancer').Name, parameters('internalLoadBalancer').frontendName)).properties.privateIPAddress, concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.4'))]",
-                            "translatedPort": "80"
-                            }
-                        ]
+                            "action": {
+                                "type": "Dnat"
+                            },
+                            "priority": 300,
+                            "rules": [
+                                {
+                                    "description": "inbound-http",
+                                    "destinationAddresses": [ "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('azureFirewall').publicIPAddressName)).ipAddress]" ],
+                                    "destinationPorts": [ "80" ],
+                                    "name": "inbound-http",
+                                    "protocols": [ "TCP", "UDP" ],
+                                    "sourceAddresses": [ "*" ],
+                                    "translatedAddress": "[if(greater(parameters('WindowsVMCount'), 1), reference(resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', parameters('internalLoadBalancer').Name, parameters('internalLoadBalancer').frontendName)).properties.privateIPAddress, concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.4'))]",
+                                    "translatedPort": "80"
+                                }
+                            ]
                         }
                     }
                 ],
@@ -772,8 +772,15 @@
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "if(greater(parameters('windowsVMCount'), 1), [[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)], [resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]],
-                [[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]])"
+                "if(greater(parameters('windowsVMCount'), 1), 
+                [
+                    resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name), 
+                    resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)
+                ], 
+                [
+                    resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)
+                ]
+                )"
             ],
             // "dependsOn": [
             //     "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]",
