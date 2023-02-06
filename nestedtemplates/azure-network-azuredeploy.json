@@ -772,7 +772,7 @@
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
             "location": "[parameters('location')]",
 "dependsOn": [
-    "Microsoft.Network/virtualNetworks/spokeNetwork",
+    "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]",
     "[if(greater(parameters('windowsVMCount'), 1), concat('Microsoft.Network/loadBalancers/', parameters('internalLoadBalancer').name), '')]"
 ],
             // "dependsOn": [
