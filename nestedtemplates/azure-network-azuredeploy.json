@@ -92,6 +92,15 @@
                 "routeNameFirewall": "gateway-to-firewall"
             }
         },
+        "internalLoadBalancer": {
+            "type": "object",
+            "defaultValue": {
+                "name": "lb-internal",
+                "backendName": "lb-backend",
+                "fontendName": "lb-frontend",
+                "probeName": "lb-probe"
+            }
+        },
         "location": {
             "type": "string"
         }
@@ -577,9 +586,9 @@
             },
             "properties": {
                 "publicIPAllocationMethod": "Static"
-                //"dnsSettings": {
-                //"domainNameLabel": "[parameters('domainNameLabel')]"
-                //}
+                    //"dnsSettings": {
+                        //"domainNameLabel": "[parameters('domainNameLabel')]"
+                    //}
             }
         },
         {
@@ -614,22 +623,22 @@
                     {
                         "name": "inbound-dnat",
                         "properties": {
-                            "action": {
-                                "type": "Dnat"
-                            },
-                            "priority": 300,
-                            "rules": [
-                                {
-                                    "description": "inbound-http",
-                                    "destinationAddresses": [ "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('azureFirewall').publicIPAddressName)).ipAddress]" ],
-                                    "destinationPorts": [ "80" ],
-                                    "name": "inbound-http",
-                                    "protocols": [ "TCP", "UDP" ],
-                                    "sourceAddresses": [ "*" ],
-                                    "translatedAddress": "[concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.4')]",
-                                    "translatedPort": "80"
-                                }
-                            ]
+                        "action": {
+                            "type": "Dnat"
+                        },
+                        "priority": 300,
+                        "rules": [
+                            {
+                            "description": "inbound-http",
+                            "destinationAddresses": ["[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('azureFirewall').publicIPAddressName)).ipAddress]"],
+                            "destinationPorts": [ "80" ],
+                            "name": "inbound-http",
+                            "protocols": [ "TCP", "UDP" ],
+                            "sourceAddresses": [ "*" ],
+                            "translatedAddress": "10.100.0.4", //"[reference(resourceId('Microsoft.Network/loadBalancers/frontendIpConfigurations', parameters('internalLoadBalancer').Name, parameters('internalLoadBalancer').fontendName)).frontendIPConfiguration.properties.subnet]",
+                            "translatedPort": "80"
+                            }
+                        ]
                         }
                     }
                 ],
@@ -757,6 +766,38 @@
             ]
         },
         {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2020-05-01",
+            "name": "[concat(variables('nicNameWeb'), copyIndex())]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]",
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('spokeNetwork').name, parameters('spokeNetwork').subnetName)]"
+                            },
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').backendName)]"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "copy": {
+                "name": "niccopy",
+                "count": "[parameters('windowsVMCount')]"
+            }
+        },
+        {
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2019-07-01",
             "name": "[concat(variables('vmNameWeb'), copyIndex())]",
@@ -865,6 +906,93 @@
                 "nextHopType": "VirtualAppliance",
                 "nextHopIpAddress": "[reference(resourceId('Microsoft.Network/azureFirewalls', parameters('azureFirewall').name), '2020-05-01').ipConfigurations[0].properties.privateIpAddress]"
             }
+        },
+        {
+            //"condition": "[not(equals(parameters('windowsVMCount'), 1))]",
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2020-05-01",
+            "name": "[parameters('internalLoadBalancer').name]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]"
+            ],
+            "sku": {
+                "name": "Standard"
+            },
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "[parameters('internalLoadBalancer').fontendName]",
+                        "properties": {
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('spokeNetwork').name, parameters('spokeNetwork').subnetName)]"
+                            },
+                            "privateIPAllocationMethod": "Dynamic"
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "[parameters('internalLoadBalancer').backendName]"
+                    }
+                ],
+                "loadBalancingRules": [
+                    {
+                        "name": "[parameters('internalLoadBalancer').probeName]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').fontendName)]"
+                            },
+                            "frontendPort": 80,
+                            "backendPort": 80,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 4,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": false,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').backendName)]"
+                            },
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name), '/probes/', parameters('internalLoadBalancer').probeName)]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "[parameters('internalLoadBalancer').probeName]",
+                        "properties": {
+                            "protocol": "Http",
+                            "port": 80,
+                            "requestPath": "/",
+                            "intervalInSeconds": 15,
+                            "numberOfProbes": 2
+                        }
+                    }
+                ]
+            },
+            "resources": [
+                {
+                    "type": "providers/diagnosticSettings",
+                    "apiVersion": "2017-05-01-preview",
+                    "name": "[concat('Microsoft.Insights/default', variables('logAnalyticsWorkspace'))]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]",
+                        "[resourceId('Microsoft.OperationalInsights/workspaces', variables('logAnalyticsWorkspace'))]"
+                    ],
+                    "properties": {
+                        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', variables('logAnalyticsWorkspace'))]",
+                        "metrics": [
+                            {
+                                "category": "AllMetrics",
+                                "enabled": true
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     ],
     "outputs": {
