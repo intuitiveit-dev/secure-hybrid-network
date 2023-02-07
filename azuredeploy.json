@@ -48,8 +48,8 @@
         "windowsVMCount": {
             "type": "int",
             "metadata": {
-                "description": "Number of VMs to include in spoke network (1 or more). Selecting more than 1 will also deploy a load balancer",
-                "hint": "Number of VMs to include in spoke network (1 or more). Selecting more than 1 will also deploy a load balancer"                
+                //"description": "Number of VMs to include in spoke network (1 or more). Selecting more than 1 will also deploy a load balancer",
+                //"hint": "Number of VMs to include in spoke network (1 or more). Selecting more than 1 will also deploy a load balancer"                
             }
         }
     },
