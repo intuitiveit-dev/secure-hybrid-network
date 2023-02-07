@@ -5,8 +5,8 @@
         "resourceNamePrefix": {
             "type": "string",
             "metadata": {
-                "description": "A string that will be added to the beginning of resources",
-                "hint": "A string that will be added to the beginning of resources"
+                //"description": "A string that will be added to the beginning of resources",
+                //"hint": "A string that will be added to the beginning of resources"
             }
         },
         // "domainNameLabel": {
@@ -15,8 +15,8 @@
         "spokeNetworkAddressPrefix": {
             "type": "string",
             "metadata": {
-                "description": "Address space to use for Azure spoke network (e.g. 10.100.0.0/16)",
-                "hint": "Address space to use for Azure spoke network (e.g. 10.100.0.0/16)"
+                //"description": "Address space to use for Azure spoke network (e.g. 10.100.0.0/16)",
+                //"hint": "Address space to use for Azure spoke network (e.g. 10.100.0.0/16)"
             }
         },
         "mocOnPremResourceGroup": {
@@ -30,15 +30,15 @@
         "adminUserName": {
             "type": "string",
             "metadata": {
-                "description": "The admin user name for both the Windows and Linux virtual machines.",
-                "hint": "The admin user name for both the Windows and Linux virtual machines."
+                //"description": "The admin user name for both the Windows and Linux virtual machines.",
+                //"hint": "The admin user name for both the Windows and Linux virtual machines."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "The admin password for both the Windows and Linux virtual machines.",
-                "hint": "The admin password for both the Windows and Linux virtual machines."
+                //"description": "The admin password for both the Windows and Linux virtual machines.",
+                //"hint": "The admin password for both the Windows and Linux virtual machines."
             }
         },
         "resourceGrouplocation": {
@@ -47,9 +47,6 @@
         },
         "windowsVMCount": {
             "type": "int",
-            "allowedValues": [
-                1, 2, 3, 4, 5, 6, 7, 8, 9
-            ],
             "metadata": {
                 "description": "Number of VMs to include in spoke network (1 or more). Selecting more than 1 will also deploy a load balancer",
                 "hint": "Number of VMs to include in spoke network (1 or more). Selecting more than 1 will also deploy a load balancer"                
