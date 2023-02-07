@@ -635,7 +635,7 @@
                                     "name": "inbound-http",
                                     "protocols": [ "TCP", "UDP" ],
                                     "sourceAddresses": [ "*" ],
-                                    "translatedAddress": "[if(greater(parameters('WindowsVMCount'), 1), reference(resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', parameters('internalLoadBalancer').Name, parameters('internalLoadBalancer').frontendName)).properties.privateIPAddress, concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.4'))]",
+                                    "translatedAddress": "[reference(resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', parameters('internalLoadBalancer').Name, parameters('internalLoadBalancer').frontendName)).properties.privateIPAddress]",
                                     "translatedPort": "80"
                                 }
                             ]
