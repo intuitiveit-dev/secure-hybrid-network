@@ -766,7 +766,6 @@
             ]
         },
         {
-            "condition": "[greater(parameters('WindowsVMCount'), 1)]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2020-05-01",
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
@@ -910,7 +909,6 @@
             }
         },
         {
-            "condition": "[greater(parameters('windowsVMCount'), 1)]",
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2020-05-01",
             "name": "[parameters('internalLoadBalancer').name]",
@@ -977,7 +975,6 @@
             },
             "resources": [
                 {
-                    "condition": "[greater(parameters('WindowsVMCount'), 1)]",
                     "type": "providers/diagnosticSettings",
                     "apiVersion": "2017-05-01-preview",
                     "name": "[concat('Microsoft.Insights/default', variables('logAnalyticsWorkspace'))]",
