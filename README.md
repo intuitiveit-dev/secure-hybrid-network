@@ -28,6 +28,8 @@ For detailed information, see the Implement a secure hybrid network:
 
 ## Deploy sample
 
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json](https://raw.githubusercontent.com/intuitiveit-dev/secure-hybrid-network/master/azuredeploy.json)
+
 Run the following command to initiate the deployment. When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
 
 ```azurecli-interactive
