@@ -766,7 +766,7 @@
             ]
         },
         {
-            //"condition": "[greater(parameters('WindowsVMCount'), 1)]",
+            "condition": "[greater(parameters('WindowsVMCount'), 1)]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2020-05-01",
             "name": "[concat(variables('nicNameWeb'), copyIndex())]",
@@ -774,6 +774,39 @@
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]",
                 "[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]"
+
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('spokeNetwork').name, parameters('spokeNetwork').subnetName)]"
+                            },
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('internalLoadBalancer').name, parameters('internalLoadBalancer').backendName)]"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "copy": {
+                "name": "niccopy",
+                "count": "[parameters('windowsVMCount')]"
+            }
+        },
+        {
+            "condition": "[equals(parameters('WindowsVMCount'), 1)]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2020-05-01",
+            "name": "[concat(variables('nicNameWeb'), copyIndex())]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('spokeNetwork').name)]"
 
             ],
             "properties": {
@@ -910,7 +943,7 @@
             }
         },
         {
-            // "condition": "[greater(parameters('windowsVMCount'), 1)]",
+            "condition": "[greater(parameters('windowsVMCount'), 1)]",
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2020-05-01",
             "name": "[parameters('internalLoadBalancer').name]",
@@ -977,7 +1010,7 @@
             },
             "resources": [
                 {
-                    // "condition": "[greater(parameters('WindowsVMCount'), 1)]",
+                    "condition": "[greater(parameters('WindowsVMCount'), 1)]",
                     "type": "providers/diagnosticSettings",
                     "apiVersion": "2017-05-01-preview",
                     "name": "[concat('Microsoft.Insights/default', variables('logAnalyticsWorkspace'))]",
