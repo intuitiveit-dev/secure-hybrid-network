@@ -598,7 +598,8 @@
             "name": "[parameters('azureFirewall').name]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('hubNetwork').name)]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('hubNetwork').name)]",
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('internalLoadBalancer').name)]"
             ],
             "properties": {
                 "sku": {
