@@ -43,10 +43,13 @@ az deployment sub create \
 
 | Parameter | Type | Description | Default and properties |
 |---|---|---|--|
+| resourceNamePrefix | string | Name appended to certain resources within the spoke network |
+| spokeNetworkAddressPrefix | string | CIDR mask to use for the spoke network (e.g. 10.100.0.0/16) |
 | mocOnPremResourceGroup | string | Name of the moc on-prem resource group. | site-to-site-mock-prem |
 | azureNetworkResourceGroup | string | Name of the Azure network resource group. | site-to-site-azure-network |
 | adminUserName | string | The admin user name for the Azure SQL instance. | null |
 | adminPassword | securestring | The admin password for the Azure SQL instance. | null |
+| windowsVMCount | int | Number of VMs to deploy. More than one also deploys a load balancer |
 
 **nestedtemplates/azure-network-azuredeploy.json**
 
