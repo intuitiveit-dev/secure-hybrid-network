@@ -649,7 +649,7 @@
                 "networkRuleCollections": [
                     {
                         "name": "KMS",
-                        "id": "[concat(resourceId('Microsoft.Network/azureFirewalls', parameters('azureFirewall')), '/networkRuleCollections/KMS')]",
+                        "id": "[concat(resourceId('Microsoft.Network/azureFirewalls', parameters('azureFirewall').name), '/networkRuleCollections/KMS')]",
                         "properties": {
                             "priority": 110,
                             "action": {
@@ -681,7 +681,7 @@
                     },
                     {
                         "name": "smtp",
-                        "id": "[concat(resourceId('Microsoft.Network/azureFirewalls', parameters('azureFirewall')), '/networkRuleCollections/smtp')]",
+                        "id": "[concat(resourceId('Microsoft.Network/azureFirewalls', parameters('azureFirewall').name), '/networkRuleCollections/smtp')]",
                         "properties": {
                             "priority": 120,
                             "action": {
@@ -711,7 +711,7 @@
                     },
                     {
                         "name": "mssql",
-                        "id": "[concat(resourceId('Microsoft.Network/azureFirewalls', parameters('azureFirewall')), '/networkRuleCollections/mssql')]",
+                        "id": "[concat(resourceId('Microsoft.Network/azureFirewalls', parameters('azureFirewall').name), '/networkRuleCollections/mssql')]",
                         "properties": {
                             "priority": 100,
                             "action": {
