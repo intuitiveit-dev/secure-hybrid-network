@@ -1010,9 +1010,9 @@
                 "[resourceId('Microsoft.Network/routeTables', parameters('gatewayRoutes').tableName)]"
             ],
             "properties": {
-                "addressPrefix": "[parameters('spokeNetwork').addressPrefix]",
+                "addressPrefix": "[concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.7', '/32')]",
                 "nextHopType": "VirtualAppliance",
-                "nextHopIpAddress": "[concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.4')]"
+                "nextHopIpAddress": "[concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.7')]"
             }
         },
         {
