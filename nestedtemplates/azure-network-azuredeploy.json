@@ -505,7 +505,7 @@
             "comments": "VPN Gateway",
             "condition": "[parameters('configureSitetosite')]",
             "type": "Microsoft.Network/virtualNetworkGateways",
-            "apiVersion": "2019-11-01",
+            "apiVersion": "2023-06-01",
             "name": "[parameters('vpnGateway').name]",
             "location": "[parameters('location')]",
             "dependsOn": [
