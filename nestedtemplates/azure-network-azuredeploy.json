@@ -600,6 +600,9 @@
                     "tier": "Standard"
                 },
                 "threatIntelMode": "Alert",
+                "additionalProperties": {
+                    "Network.DNS.EnableProxy": "true"
+                },
                 "ipConfigurations": [
                     {
                         "name": "[parameters('azureFirewall').name]",
