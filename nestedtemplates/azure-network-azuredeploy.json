@@ -1121,7 +1121,7 @@
         "vpnIp": {
             "type": "string",
             //"value": "[reference(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name)).bgpSettings.bgpPeeringAddresses[0].tunnelIpAddresses[0]]"
-            "value": "[resourceId('Microsoft.Network/publicIpAddresses', parameters('vpnGateway').publicIPAddressName)]"
+            "value": "[reference(resourceId('Microsoft.Network/publicIpAddresses', parameters('vpnGateway').publicIPAddressName)).ipAddress]"
         },
         "mocOnpremNetwork": {
             "type": "string",
