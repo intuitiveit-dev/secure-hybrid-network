@@ -505,7 +505,7 @@
             "comments": "VPN Gateway",
             "condition": "[parameters('configureSitetosite')]",
             "type": "Microsoft.Network/virtualNetworkGateways",
-            "apiVersion": "2023-06-01",
+            "apiVersion": "2023-04-01",
             "name": "[parameters('vpnGateway').name]",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -1120,8 +1120,8 @@
     "outputs": {
         "vpnIp": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name)).bgpSettings.bgpPeeringAddresses[0].tunnelIpAddresses[0]]"
-            //"value": "[reference(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name)).publicIPAddress]"
+            //"value": "[reference(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name)).bgpSettings.bgpPeeringAddresses[0].tunnelIpAddresses[0]]"
+            "value": "[resourceId('Microsoft.Network/publicIpAddresses', parameters('vpnGateway').publicIPAddressName)]"
         },
         "mocOnpremNetwork": {
             "type": "string",
