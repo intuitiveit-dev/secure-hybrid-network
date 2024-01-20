@@ -494,11 +494,16 @@
             "comments": "Public IP address for VPN Gateway",
             "condition": "[parameters('configureSitetosite')]",
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2019-11-01",
+            "apiVersion": "2023-06-01",
             "name": "[parameters('vpnGateway').publicIPAddressName]",
             "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
             "properties": {
-                "publicIPAllocationMethod": "Dynamic"
+                "publicIPAllocationMethod": "Static",
+                "publicIPAddressVersion": "IPv4"
             }
         },
         {
