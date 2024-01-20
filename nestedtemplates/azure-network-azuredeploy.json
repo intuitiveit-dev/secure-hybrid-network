@@ -547,7 +547,7 @@
                     "peerWeight": 0,
                     "bgpPeeringAddresses": [
                         {
-                            "ipconfigurationId": "[concat(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway')), '/ipConfigurations/default')]",
+                            "ipconfigurationId": "[concat(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name), '/ipConfigurations/default')]",
                             "customBgpIpAddresses": []
                         }
                     ]
