@@ -542,15 +542,7 @@
                 "activeActive": false,
                 //Added to troubleshoot vpnIp error during deployment
                 "bgpSettings": {
-                    "asn": 65515,
-                    "bgpPeeringAddress": "10.0.2.30",
-                    "peerWeight": 0,
-                    "bgpPeeringAddresses": [
-                        {
-                            "ipconfigurationId": "[concat(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name), '/ipConfigurations/default')]",
-                            "customBgpIpAddresses": []
-                        }
-                    ]
+                    "asn": 60001
                 }
             },
             "resources": [
