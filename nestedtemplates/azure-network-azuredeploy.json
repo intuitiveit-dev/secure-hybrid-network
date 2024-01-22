@@ -539,19 +539,19 @@
                 "gatewayType": "Vpn",
                 "vpnType": "RouteBased",
                 "enableBgp": false,
-                "activeActive": false
+                "activeActive": false,
                 //Added to troubleshoot vpnIp error during deployment
-                // "bgpSettings": {
-                //     "asn": 65515,
-                //     "bgpPeeringAddress": "10.1.2.30",
-                //     "peerWeight": 0,
-                //     "bgpPeeringAddresses": [
-                //         {
-                //             "ipconfigurationId": "[concat(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name), '/ipConfigurations/default')]",
-                //             "customBgpIpAddresses": []
-                //         }
-                //     ]
-                //}
+                "bgpSettings": {
+                    "asn": 65515,
+                    "bgpPeeringAddress": "10.0.2.30",
+                    "peerWeight": 0,
+                    "bgpPeeringAddresses": [
+                        {
+                            "ipconfigurationId": "[concat(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('vpnGateway').name), '/ipConfigurations/default')]",
+                            "customBgpIpAddresses": []
+                        }
+                    ]
+                }
             },
             "resources": [
                 {
