@@ -11,7 +11,13 @@
         "spokeNetworkAddressPrefix": {
             "type": "string",
             "metadata": {
-                "description": "Address space to use for Azure spoke network"
+                "description": "Address space to use for Azure spoke network eg 10.10.100.0/16"
+            }
+        },
+        "hubNetworkAddressPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Address space to use for Azure hub network eg 10.0.0.0/20"
             }
         },
         "mocOnPremResourceGroup": {
@@ -112,6 +118,9 @@
                     },
                     "spokeNetworkAddressPrefix": {
                         "value": "[parameters('spokeNetworkAddressPrefix')]"
+                    },
+                    "hubNetworkAddressPrefix": {
+                        "value": "[parameters('hubNetworkAddressPrefix')]"
                     },
                     "windowsVMCount": {
                         "value": "[parameters('windowsVMCount')]"
