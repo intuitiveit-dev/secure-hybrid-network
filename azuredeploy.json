@@ -44,6 +44,9 @@
         },
         "windowsVMCount": {
             "type": "int"
+        },
+        "automationAccountName": {
+            "type": "string"
         }
     },
     "variables": {
@@ -127,6 +130,9 @@
                     },
                     "resourceNamePrefix": {
                         "value": "[parameters('resourceNamePrefix')]"
+                    },
+                    "automationAccountName": {
+                        "value": "[parameters('automationAccountName')]"
                     }
                 }
             }

@@ -50,6 +50,13 @@
                 "description": "The number of Windows virtual machines to be deployed.",
                 "displayName": "Windows VM Count"
             }
+        },
+        "automationAccountName": {
+            "value": "FWIIS-STAGING-AUTOMATION",
+            "metadata": {
+                "description": "The automation account resource name.",
+                "displayName": "Azure Network Automation Account"
+            }
         }
     }
 }
