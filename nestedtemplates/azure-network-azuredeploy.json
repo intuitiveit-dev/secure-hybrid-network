@@ -34,8 +34,8 @@
             }
         },
         "automationAccountName": {
-            "type": "string",
-            "defaultValue": "[parameters('automationAccountName')]"
+            "type": "string"
+            //"value": "[parameters('automationAccountName')]"
         },
         "spokeNetworkAddressPrefix": {
             "type": "string"
