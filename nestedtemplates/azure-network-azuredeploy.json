@@ -54,7 +54,7 @@
             "defaultValue": {
                 "name": "[concat('vpn-', parameters('resourceNamePrefix'), '-azure-network')]",
                 "subnetName": "GatewaySubnet",
-                "subnetPrefix": "[concat(split(parameters('hubNetworkAddressPrefix'), '.')[0], '.', split(parameters('hubNetworkAddressPrefix'), '.')[1], '.', '2', '.', '.0/27')]", //"10.0.2.0/27",
+                "subnetPrefix": "[concat(split(parameters('hubNetworkAddressPrefix'), '.')[0], '.', split(parameters('hubNetworkAddressPrefix'), '.')[1], '.', '2', '.0/27')]", //"10.0.2.0/27",
                 "publicIPAddressName": "pip-vgn-gateway"
             }
         },
@@ -63,7 +63,7 @@
             "defaultValue": {
                 "name": "AzureBastionHost",
                 "subnetName": "AzureBastionSubnet",
-                "subnetPrefix": "[concat(split(parameters('hubNetworkAddressPrefix'), '.')[0], '.', split(parameters('hubNetworkAddressPrefix'), '.')[1], '.', '1', '.', '.0/29')]", //"10.0.1.0/29",
+                "subnetPrefix": "[concat(split(parameters('hubNetworkAddressPrefix'), '.')[0], '.', split(parameters('hubNetworkAddressPrefix'), '.')[1], '.', '1', '.0/29')]", //"10.0.1.0/29",
                 "publicIPAddressName": "pip-bastion",
                 "nsgName": "nsg-hub-bastion"
             }
@@ -73,7 +73,7 @@
             "defaultValue": {
                 "name": "AzureFirewall",
                 "subnetName": "AzureFirewallSubnet",
-                "subnetPrefix": "[concat(split(parameters('hubNetworkAddressPrefix'), '.')[0], '.', split(parameters('hubNetworkAddressPrefix'), '.')[1], '.', '3', '.', '.0/26')]", //"10.0.3.0/26",
+                "subnetPrefix": "[concat(split(parameters('hubNetworkAddressPrefix'), '.')[0], '.', split(parameters('hubNetworkAddressPrefix'), '.')[1], '.', '3', '.0/26')]", //"10.0.3.0/26",
                 "publicIPAddressName": "pip-firewall"
             }
         },

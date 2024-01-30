@@ -11,7 +11,7 @@
         "spokeNetworkAddressPrefix": {
             "type": "string",
             "metadata": {
-                "description": "Address space to use for Azure spoke network eg 10.10.100.0/16"
+                "description": "Address space to use for Azure spoke network eg 10.100.0.0/16"
             }
         },
         "hubNetworkAddressPrefix": {
