@@ -1745,7 +1745,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/AuditPolicyDsc.1.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -1756,7 +1758,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.8.0.0.nupkg"
+                }
             }
         },
         {
@@ -1767,7 +1771,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Accounts.2.8.0.nupkg"
+                }
             }
         },
         {
@@ -1778,7 +1784,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Advisor.1.1.2.nupkg"
+                }
             }
         },
         {
@@ -1789,7 +1797,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Aks.4.1.0.nupkg"
+                }
             }
         },
         {
@@ -1800,7 +1810,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.AnalysisServices.1.1.4.nupkg"
+                }
             }
         },
         {
@@ -1811,7 +1823,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ApiManagement.3.0.0.nupkg"
+                }
             }
         },
         {
@@ -1822,7 +1836,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.AppConfiguration.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -1833,7 +1849,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ApplicationInsights.2.0.0.nupkg"
+                }
             }
         },
         {
@@ -1844,7 +1862,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Attestation.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -1855,7 +1875,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Automation.1.7.3.nupkg"
+                }
             }
         },
         {
@@ -1866,7 +1888,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Batch.3.2.0.nupkg"
+                }
             }
         },
         {
@@ -1877,7 +1901,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Billing.2.0.0.nupkg"
+                }
             }
         },
         {
@@ -1888,7 +1914,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Cdn.2.1.0.nupkg"
+                }
             }
         },
         {
@@ -1899,7 +1927,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.CloudService.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -1910,7 +1940,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.CognitiveServices.1.11.0.nupkg"
+                }
             }
         },
         {
@@ -1921,7 +1953,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Compute.4.27.0.nupkg"
+                }
             }
         },
         {
@@ -1932,7 +1966,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ContainerInstance.3.1.0.nupkg"
+                }
             }
         },
         {
@@ -1943,7 +1979,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ContainerRegistry.3.0.0.nupkg"
+                }
             }
         },
         {
@@ -1954,7 +1992,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.CosmosDB.1.8.0.nupkg"
+                }
             }
         },
         {
@@ -1965,7 +2005,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DataBoxEdge.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -1976,7 +2018,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Databricks.1.2.0.nupkg" 
+                }
             }
         },
         {
@@ -1987,7 +2031,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DataFactory.1.16.7.nupkg"
+                }
             }
         },
         {
@@ -1998,7 +2044,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DataLakeAnalytics.1.0.2.nupkg"
+                }
             }
         },
         {
@@ -2009,7 +2057,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DataLakeStore.1.3.0.nupkg"
+                }
             }
         },
         {
@@ -2020,7 +2070,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DataShare.1.0.1.nupkg"
+                }
             }
         },
         {
@@ -2031,7 +2083,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DeploymentManager.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -2042,7 +2096,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DesktopVirtualization.3.1.0.nupkg"
+                }
             }
         },
         {
@@ -2053,7 +2109,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.DevTestLabs.1.0.2.nupkg"
+                }
             }
         },
         {
@@ -2064,7 +2122,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Dns.1.1.2.nupkg"
+                }
             }
         },
         {
@@ -2075,7 +2135,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.EventGrid.1.3.0.nupkg"
+                }
             }
         },
         {
@@ -2086,7 +2148,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.EventHub.2.0.0.nupkg"
+                }
             }
         },
         {
@@ -2097,7 +2161,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.FrontDoor.1.9.0.nupkg"
+                }
             }
         },
         {
@@ -2108,7 +2174,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Functions.4.0.3.nupkg"
+                }
             }
         },
         {
@@ -2119,7 +2187,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.HDInsight.5.0.1.nupkg"
+                }
             }
         },
         {
@@ -2130,7 +2200,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.HealthcareApis.2.0.0.nupkg"
+                }
             }
         },
         {
@@ -2141,7 +2213,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.IotHub.2.7.4.nupkg"
+                }
             }
         },
         {
@@ -2152,7 +2226,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.KeyVault.4.5.0.nupkg"
+                }
             }
         },
         {
@@ -2163,7 +2239,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Kusto.2.1.0.nupkg"
+                }
             }
         },
         {
@@ -2174,7 +2252,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.LogicApp.1.5.0.nupkg"
+                }
             }
         },
         {
@@ -2185,7 +2265,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.MachineLearning.1.1.3.nupkg"
+                }
             }
         },
         {
@@ -2196,7 +2278,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Maintenance.1.2.0.nupkg"
+                }
             }
         },
         {
@@ -2207,7 +2291,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ManagedServiceIdentity.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -2218,7 +2304,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ManagedServices.3.0.0.nupkg"
+                }
             }
         },
         {
@@ -2229,7 +2317,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.MarketplaceOrdering.1.0.2.nupkg"
+                }
             }
         },
         {
@@ -2240,7 +2330,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Media.1.1.1.nupkg"
+                }
             }
         },
         {
@@ -2251,7 +2343,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Migrate.1.1.2.nupkg"
+                }
             }
         },
         {
@@ -2262,7 +2356,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Monitor.3.0.1.nupkg"
+                }
             }
         },
         {
@@ -2273,7 +2369,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.MySql.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -2284,7 +2382,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Network.4.17.0.nupkg"
+                }
             }
         },
         {
@@ -2295,7 +2395,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.NotificationHubs.1.1.1.nupkg"
+                }
             }
         },
         {
@@ -2306,7 +2408,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.OperationalInsights.3.1.0.nupkg"
+                }
             }
         },
         {
@@ -2317,7 +2421,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.PolicyInsights.1.5.0.nupkg"
+                }
             }
         },
         {
@@ -2328,7 +2434,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.PostgreSql.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -2339,7 +2447,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.PowerBIEmbedded.1.1.2.nupkg"
+                }
             }
         },
         {
@@ -2350,7 +2460,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.PrivateDns.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2361,7 +2473,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.RecoveryServices.5.4.0.nupkg"
+                }
             }
         },
         {
@@ -2372,7 +2486,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.RedisCache.1.6.0.nupkg"
+                }
             }
         },
         {
@@ -2383,7 +2499,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.RedisEnterpriseCache.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -2394,7 +2512,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Relay.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2405,7 +2525,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ResourceMover.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -2416,7 +2538,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Resources.6.0.0.nupkg"
+                }
             }
         },
         {
@@ -2427,7 +2551,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Security.1.3.0.nupkg"
+                }
             }
         },
         {
@@ -2438,7 +2564,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.SecurityInsights.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -2449,7 +2577,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ServiceBus.1.9.0.nupkg"
+                }
             }
         },
         {
@@ -2460,7 +2590,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.ServiceFabric.3.0.2.nupkg"
+                }
             }
         },
         {
@@ -2471,7 +2603,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.SignalR.1.4.1.nupkg"
+                }
             }
         },
         {
@@ -2482,7 +2616,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Sql.3.9.0.nupkg"
+                }
             }
         },
         {
@@ -2493,7 +2629,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.SqlVirtualMachine.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -2504,7 +2642,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.StackHCI.1.1.1.nupkg"
+                }
             }
         },
         {
@@ -2515,7 +2655,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Storage.4.6.0.nupkg"
+                }
             }
         },
         {
@@ -2526,7 +2668,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.StorageSync.1.7.0.nupkg"
+                }
             }
         },
         {
@@ -2537,7 +2681,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.StreamAnalytics.2.0.0.nupkg"
+                }
             }
         },
         {
@@ -2548,7 +2694,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Support.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -2559,7 +2707,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Synapse.1.4.0.nupkg"
+                }
             }
         },
         {
@@ -2570,7 +2720,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.TrafficManager.1.1.0.nupkg"
+                }
             }
         },
         {
@@ -2581,7 +2733,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Az.Websites.2.11.2.nupkg"
+                }
             }
         },
         {
@@ -2592,7 +2746,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Azure.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2603,7 +2759,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Azure.Storage.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2614,7 +2772,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/AzureRM.Automation.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2625,7 +2785,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/AzureRM.Compute.1.2.1.nupkg"
+                }
             }
         },
         {
@@ -2636,7 +2798,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/AzureRM.Profile.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2647,7 +2811,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/AzureRM.Resources.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2658,7 +2824,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/AzureRM.Sql.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2669,7 +2837,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/AzureRM.Storage.1.0.3.nupkg"
+                }
             }
         },
         {
@@ -2680,7 +2850,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/ComputerManagementDsc.5.0.0.0.nupkg"
+                }
             }
         },
         {
@@ -2691,7 +2863,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/GPRegistryPolicyParser.0.2.nupkg"
+                }
             }
         },
         {
@@ -2702,7 +2876,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Microsoft.PowerShell.Core.0.0.nupkg"
+                }
             }
         },
         {
@@ -2713,7 +2889,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Microsoft.PowerShell.Diagnostics.0.0.nupkg"
+                }
             }
         },
         {
@@ -2724,7 +2902,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Microsoft.PowerShell.Management.0.0.nupkg"
+                }
             }
         },
         {
@@ -2735,7 +2915,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Microsoft.PowerShell.Security.0.0.nupkg"
+                }
             }
         },
         {
@@ -2746,7 +2928,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Microsoft.PowerShell.Utility.0.0.nupkg"
+                }
             }
         },
         {
@@ -2757,7 +2941,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Microsoft.WSMan.Management.0.0.nupkg"
+                }
             }
         },
         {
@@ -2768,7 +2954,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/Orchestrator.AssetManagement.Cmdlets.1.0.nupkg"
+                }
             }
         },
         {
@@ -2779,7 +2967,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/PSDscResources.2.9.0.0.nupkg"
+                }
             }
         },
         {
@@ -2790,7 +2980,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/SecurityPolicyDsc.2.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -2801,7 +2993,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/StateConfigCompositeResources.1.0.nupkg"
+                }
             }
         },
         {
@@ -2812,7 +3006,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xDSCDomainjoin.1.1.nupkg"
+                }
             }
         },
         {
@@ -2823,7 +3019,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xPowerShellExecutionPolicy.1.1.0.0.nupkg"
+                }
             }
         },
         {
@@ -2834,7 +3032,9 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "contentLink": {}
+                "contentLink": {
+                    "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xRemoteDesktopAdmin.1.1.0.0.nupkg"
+                }
             }
         },
         {

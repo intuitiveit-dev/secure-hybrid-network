@@ -747,7 +747,7 @@
                                         "*"
                                     ],
                                     "destinationAddresses": [
-                                        "[concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.4')]"
+                                        "[concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], '.7')]"
                                     ],
                                     "sourceIpGroups": [],
                                     "destinationIpGroups": [],
@@ -852,7 +852,7 @@
                                 "80",
                                 "443"
                             ],
-                            "sourceAddressPrefix": "[parameters('hubNetworkAddressPrefix')]", //"10.0.0.0/16",
+                            "sourceAddressPrefix": "[parameters('spokeNetworkAddressPrefix')]", //"10.0.0.0/16",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
                             "priority": 110,
@@ -917,7 +917,7 @@
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
                             "sourceAddressPrefix": "192.168.0.0/24",
-                            "destinationAddressPrefix": "[parameters('hubNetworkAddressPrefix')]", //"10.100.0.0/16",
+                            "destinationAddressPrefix": "[parameters('spokeNetworkAddressPrefix')]", //"10.100.0.0/16",
                             "access": "Deny",
                             "priority": 250,
                             "direction": "Inbound",
