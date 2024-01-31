@@ -46,7 +46,10 @@
             "type": "int"
         },
         "automationAccountName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "The name to use for the automation account"
+            }
         }
     },
     "variables": {
@@ -199,6 +202,25 @@
                     "location": {
                         "value": "[parameters('resourceGrouplocation')]"
                     }
+                }
+            }
+        },
+        {
+            "apiVersion": "2020-06-01",
+            "name": "DeployAutomationAccount",
+            "type": "Microsoft.Resources/deployments",
+            "resourceGroup": "[parameters('azureNetworkResourceGroup')]",
+            "dependsOn": [
+                "azureNetwork"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/automation-account.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "automationAccountName": { "value": "[parameters('automationAccountName')]" }
                 }
             }
         }

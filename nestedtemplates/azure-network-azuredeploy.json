@@ -1119,21 +1119,6 @@
                     }
                 }
             ]
-        },
-        {
-            "apiVersion": "2019-10-01",
-            "name": "DeployAutomationAccount",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/automation-account.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "automationAccountName": "[parameters('automationAccountName')]"
-                }
-            }
         }
     ],
     "outputs": {
