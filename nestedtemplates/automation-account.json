@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "automationAccountName": {
-            "type": "String",
+            "type": "string",
             "defaultValue": "NU-FWIIS-STAGING-Automation-Account"
         }
     },
