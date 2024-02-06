@@ -1737,6 +1737,30 @@
                 }
             }
         },
+        // {
+
+        //     "type": "Microsoft.Resources/deploymentScripts",
+
+        //     "apiVersion": "2020-10-01",
+
+        //     "kind": "AzurePowerShell",
+
+        //     "name": "WaitSection1",
+
+        //     "location": "[resourceGroup().location]",
+
+        //     "properties": {
+
+        //         "azPowerShellVersion": "3.0",
+
+        //         "scriptContent": "start-sleep -Seconds 30",
+
+        //         "cleanupPreference": "Always",
+
+        //         "retentionInterval": "PT1H"
+
+        //     }
+        // },
         {
             "type": "Microsoft.Automation/automationAccounts/modules",
             "apiVersion": "2023-11-01",
@@ -1755,7 +1779,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'AuditPolicyDsc')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1768,7 +1792,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Accounts')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1781,7 +1805,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Advisor')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Accounts')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1794,7 +1818,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Aks')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Advisor')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1807,7 +1831,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.AnalysisServices')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Aks')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1820,7 +1844,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ApiManagement')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.AnalysisServices')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1833,7 +1857,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.AppConfiguration')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ApiManagement')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1846,7 +1870,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ApplicationInsights')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.AppConfiguration')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1859,7 +1883,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Attestation')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ApplicationInsights')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1872,7 +1896,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Automation')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Attestation')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1885,7 +1909,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Batch')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Automation')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1898,7 +1922,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Billing')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Batch')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1911,7 +1935,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Cdn')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Billing')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1924,7 +1949,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.CloudService')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Cdn')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1937,7 +1963,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.CognitiveServices')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.CloudService')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1950,7 +1977,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Compute')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.CognitiveServices')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1963,7 +1991,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ContainerInstance')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Compute')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1976,7 +2005,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ContainerRegistry')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ContainerInstance')]"
             ],
             "properties": {
                 "contentLink": {
@@ -1989,7 +2019,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.CosmosDB')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ContainerRegistry')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2002,7 +2033,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DataBoxEdge')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.CosmosDB')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2015,7 +2047,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Databricks')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DataBoxEdge')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2028,7 +2061,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DataFactory')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Databricks')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2041,7 +2075,7 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DataLakeAnalytics')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DataFactory')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2054,7 +2088,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DataLakeStore')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DataLakeAnalytics')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2067,7 +2102,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DataShare')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DataLakeStore')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2080,7 +2116,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DeploymentManager')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DataShare')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2093,7 +2130,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DesktopVirtualization')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DeploymentManager')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2106,7 +2144,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.DevTestLabs')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DesktopVirtualization')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2119,7 +2158,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Dns')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.DevTestLabs')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2132,7 +2172,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.EventGrid')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Dns')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2145,7 +2186,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.EventHub')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.EventGrid')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2158,7 +2200,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.FrontDoor')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.EventHub')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2171,7 +2214,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Functions')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.FrontDoor')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2184,7 +2228,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.HDInsight')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Functions')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2197,7 +2242,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.HealthcareApis')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.HDInsight')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2210,7 +2256,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.IotHub')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.HealthcareApis')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2223,7 +2270,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.KeyVault')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.IotHub')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2236,7 +2284,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Kusto')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.KeyVault')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2249,7 +2298,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.LogicApp')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Kusto')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2262,7 +2312,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.MachineLearning')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.LogicApp')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2275,7 +2326,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Maintenance')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.MachineLearning')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2288,7 +2340,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ManagedServiceIdentity')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Maintenance')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2301,7 +2354,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ManagedServices')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ManagedServiceIdentity')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2314,7 +2368,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.MarketplaceOrdering')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ManagedServices')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2327,7 +2382,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Media')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.MarketplaceOrdering')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2340,7 +2396,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Migrate')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Media')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2353,7 +2410,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Monitor')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Migrate')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2366,7 +2424,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.MySql')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Monitor')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2379,7 +2438,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Network')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.MySql')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2392,7 +2452,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.NotificationHubs')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Network')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2405,7 +2466,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.OperationalInsights')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.NotificationHubs')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2418,7 +2480,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.PolicyInsights')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.OperationalInsights')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2431,7 +2494,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.PostgreSql')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.PolicyInsights')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2444,7 +2508,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.PowerBIEmbedded')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.PostgreSql')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2457,7 +2522,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.PrivateDns')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.PowerBIEmbedded')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2470,7 +2536,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.RecoveryServices')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.PrivateDns')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2483,7 +2550,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.RedisCache')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.RecoveryServices')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2496,7 +2564,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.RedisEnterpriseCache')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.RedisCache')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2509,7 +2578,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Relay')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.RedisEnterpriseCache')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2522,7 +2592,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ResourceMover')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Relay')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2535,7 +2606,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Resources')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ResourceMover')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2548,7 +2620,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Security')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Resources')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2561,7 +2634,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.SecurityInsights')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Security')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2574,7 +2648,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ServiceBus')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.SecurityInsights')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2587,7 +2662,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.ServiceFabric')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ServiceBus')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2600,7 +2676,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.SignalR')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.ServiceFabric')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2613,7 +2690,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Sql')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.SignalR')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2626,7 +2704,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.SqlVirtualMachine')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Sql')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2639,7 +2718,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.StackHCI')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.SqlVirtualMachine')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2652,7 +2732,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Storage')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.StackHCI')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2665,7 +2746,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.StorageSync')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Storage')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2678,7 +2760,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.StreamAnalytics')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.StorageSync')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2691,7 +2774,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Support')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.StreamAnalytics')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2704,7 +2788,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Synapse')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Support')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2717,7 +2802,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.TrafficManager')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Synapse')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2730,7 +2816,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Az.Websites')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.TrafficManager')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2743,7 +2830,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Azure')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Az.Websites')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2756,7 +2844,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Azure.Storage')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Azure')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2769,7 +2858,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/AzureRM.Automation')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Azure.Storage')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2782,7 +2872,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/AzureRM.Compute')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'AzureRM.Automation')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2795,7 +2886,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/AzureRM.Profile')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'AzureRM.Compute')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2808,7 +2900,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/AzureRM.Resources')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'AzureRM.Profile')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2821,7 +2914,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/AzureRM.Sql')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'AzureRM.Resources')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2834,7 +2928,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/AzureRM.Storage')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'AzureRM.Sql')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2847,7 +2942,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/ComputerManagementDsc')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'AzureRM.Storage')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2860,7 +2956,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/GPRegistryPolicyParser')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'ComputerManagementDsc')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2873,7 +2970,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Microsoft.PowerShell.Core')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'GPRegistryPolicyParser')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2886,7 +2984,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Microsoft.PowerShell.Diagnostics')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Microsoft.PowerShell.Core')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2899,7 +2998,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Microsoft.PowerShell.Management')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Microsoft.PowerShell.Diagnostics')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2912,7 +3012,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Microsoft.PowerShell.Security')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Microsoft.PowerShell.Management')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2925,7 +3026,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Microsoft.PowerShell.Utility')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Microsoft.PowerShell.Security')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2938,7 +3040,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Microsoft.WSMan.Management')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Microsoft.PowerShell.Utility')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2951,7 +3054,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/Orchestrator.AssetManagement.Cmdlets')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Microsoft.WSMan.Management')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2964,7 +3068,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/PSDscResources')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'Orchestrator.AssetManagement.Cmdlets')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2977,7 +3082,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/SecurityPolicyDsc')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'PSDscResources')]"
             ],
             "properties": {
                 "contentLink": {
@@ -2990,7 +3096,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/StateConfigCompositeResources')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'SecurityPolicyDsc')]"
             ],
             "properties": {
                 "contentLink": {
@@ -3003,7 +3110,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/xDSCDomainjoin')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'StateConfigCompositeResources')]"
             ],
             "properties": {
                 "contentLink": {
@@ -3016,7 +3124,8 @@
             "apiVersion": "2023-11-01",
             "name": "[concat(parameters('automationAccountName'), '/xPowerShellExecutionPolicy')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), 'xDSCDomainjoin')]"
             ],
             "properties": {
                 "contentLink": {
