@@ -37,7 +37,7 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "isGlobal": true,
+                "isGlobal": false,
                 "fieldDefinitions": {
                     "AutomationCertificateName": {
                         "isEncrypted": false,
@@ -60,7 +60,7 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "isGlobal": true,
+                "isGlobal": false,
                 "fieldDefinitions": {
                     "SubscriptionName": {
                         "isEncrypted": false,
@@ -88,7 +88,7 @@
                 "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
             ],
             "properties": {
-                "isGlobal": true,
+                "isGlobal": false,
                 "fieldDefinitions": {
                     "ApplicationId": {
                         "isEncrypted": false,
