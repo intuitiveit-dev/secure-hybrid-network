@@ -33,10 +33,6 @@
                 "addressPrefix": "[parameters('hubNetworkAddressPrefix')]" //"10.0.0.0/20"
             }
         },
-        // "automationAccountName": {
-        //     "type": "string"
-        //     //"value": "[parameters('automationAccountName')]"
-        // },
         "spokeNetworkAddressPrefix": {
             "type": "string"
         },
