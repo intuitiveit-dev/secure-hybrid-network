@@ -44,13 +44,14 @@
         },
         "windowsVMCount": {
             "type": "int"
-        },
-        "automationAccountName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name to use for the automation account"
-            }
         }
+        // },
+        // "automationAccountName": {
+        //     "type": "string",
+        //     "metadata": {
+        //         "description": "The name to use for the automation account"
+        //     }
+        // }
     },
     "variables": {
         "mocOnPremTemplate": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/mock-onprem-azuredeploy.json')]",
@@ -133,10 +134,11 @@
                     },
                     "resourceNamePrefix": {
                         "value": "[parameters('resourceNamePrefix')]"
-                    },
-                    "automationAccountName": {
-                        "value": "[parameters('automationAccountName')]"
                     }
+                    // },
+                    // "automationAccountName": {
+                    //     "value": "[parameters('automationAccountName')]"
+                    // }
                 }
             }
         },
