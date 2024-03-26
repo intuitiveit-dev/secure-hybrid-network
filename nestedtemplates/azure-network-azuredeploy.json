@@ -1223,9 +1223,9 @@
             "type": "string",
             "value": "[parameters('vpnGateway').name]"
         },
-        "adminUsername": {
+        "adminUserName": {
             "type": "string",
-            "value": "[parameters('adminUserName')]"
+            "value": "[parameters('adminUsername')]"
         },
         "adminPassword": {
             "type": "securestring",

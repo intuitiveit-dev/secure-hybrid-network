@@ -83,18 +83,13 @@
           "description": "SQL Server Sku"
         }
       },
-      "adminUsername": {
-        "type": "string",
-        "metadata": {
-          "description": "The admin user name of the VM"
-        }
-      },
-      "adminPassword": {
-        "type": "securestring",
-        "metadata": {
-          "description": "The admin password of the VM"
-        }
-      },
+        "adminUserName": {
+            "type": "string",
+            "defaultValue": "azureadmin"
+        },
+        "adminPassword": {
+            "type": "securestring"
+        },
       "storageWorkloadType": {
         "type": "string",
         "defaultValue": "General",
