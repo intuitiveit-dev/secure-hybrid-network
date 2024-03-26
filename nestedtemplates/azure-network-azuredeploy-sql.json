@@ -15,7 +15,7 @@
         "hubNetwork": {
             "type": "object",
             "defaultValue": {
-                "name": "[concat('vnet-', parameters('resourceNamePrefix'), '-hub')]",
+                "name": "[concat('vnet-', parameters('resourceNamePrefix'), '-spoke-resources')]",
                 "addressPrefix": "10.0.0.0/20"
             }
         },
