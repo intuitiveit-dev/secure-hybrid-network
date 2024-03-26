@@ -12,12 +12,12 @@
         "resourceNamePrefix": {
             "type": "string"
         },
-        "hubNetwork": {
+        "spokeNetwork": {
             "type": "object",
             "defaultValue": {
                 "name": "[concat('vnet-', parameters('resourceNamePrefix'), '-spoke')]",
                 "addressPrefix": "10.0.0.0/20",
-                "nsgName": "fwiis-staging-spoke"
+                "subnetNsgName": "fwiis-staging-spoke"
             }
         },
       "virtualMachineName": {
@@ -36,7 +36,7 @@
       },
       "existingVirtualNetworkName": {
         "type": "string",
-        "defaultValue": "[parameters('hubNetwork').name]",
+        "defaultValue": "[parameters('spokeNetwork').name]",
         "metadata": {
           "description": "Specify the name of an existing VNet in the same resource group"
         }
@@ -159,7 +159,7 @@
     },
     "variables": {
       "networkInterfaceName": "[format('nic-{0}', parameters('virtualMachineName'))]",
-      "networkSecurityGroupName": "[parameters('hubNetwork').nsgName]",
+      "networkSecurityGroupName": "[parameters('spokeNetwork').nsgName]",
     //   "networkSecurityGroupRules": [
     //     {
     //       "name": "RDP",
