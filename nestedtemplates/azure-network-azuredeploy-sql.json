@@ -158,7 +158,7 @@
     },
     "variables": {
       "networkInterfaceName": "[format('nic-{0}', parameters('virtualMachineName'))]",
-      "networkSecurityGroupName": "[format('nsg-{0}', parameters('virtualMachineName'))]",
+      "networkSecurityGroupName": "[parameters('hubNetwork').nsgName]",
     //   "networkSecurityGroupRules": [
     //     {
     //       "name": "RDP",
