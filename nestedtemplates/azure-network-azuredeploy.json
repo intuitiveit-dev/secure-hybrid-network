@@ -1223,7 +1223,7 @@
             "type": "string",
             "value": "[parameters('vpnGateway').name]"
         },
-        "adminUserName": {
+        "adminUsername": {
             "type": "string",
             "value": "[parameters('adminUserName')]"
         },
