@@ -16,7 +16,8 @@
             "type": "object",
             "defaultValue": {
                 "name": "[concat('vnet-', parameters('resourceNamePrefix'), '-spoke')]",
-                "addressPrefix": "10.0.0.0/20"
+                "addressPrefix": "10.0.0.0/20",
+                "nsgName": "fwiis-staging-spoke"
             }
         },
       "virtualMachineName": {
