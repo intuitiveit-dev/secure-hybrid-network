@@ -1222,6 +1222,14 @@
         "azureGatewayName": {
             "type": "string",
             "value": "[parameters('vpnGateway').name]"
+        },
+        "adminUserName": {
+            "type": "string",
+            "value": "[parameters('adminUserName')]"
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "value": "[parameters('adminPassword')]"
         }
     }
 }
