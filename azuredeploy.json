@@ -221,7 +221,9 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
-
+                    "resourceNamePrefix": {
+                        "value": "[parameters('resourceNamePrefix')]"
+                    }
                 }
             }
         }
