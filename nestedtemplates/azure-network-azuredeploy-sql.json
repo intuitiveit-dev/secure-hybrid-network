@@ -22,7 +22,7 @@
         },
       "virtualMachineName": {
         "type": "string",
-        "defaultValue": "[concat(parameters('resourceNamePrefix'), '-sql')]",
+        "defaultValue": "vm-sql-server",
         "metadata": {
           "description": "The name of the VM"
         }
