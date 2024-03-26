@@ -9,6 +9,16 @@
       }
     },
     "parameters": {
+        "resourceNamePrefix": {
+            "type": "string"
+        },
+        "hubNetwork": {
+            "type": "object",
+            "defaultValue": {
+                "name": "[concat('vnet-', parameters('resourceNamePrefix'), '-hub')]",
+                "addressPrefix": "10.0.0.0/20"
+            }
+        },
       "virtualMachineName": {
         "type": "string",
         "defaultValue": "myVM",
@@ -25,7 +35,7 @@
       },
       "existingVirtualNetworkName": {
         "type": "string",
-        "defaultValue": "Sql-Vm",
+        "defaultValue": "[parameters('hubNetwork').name]",
         "metadata": {
           "description": "Specify the name of an existing VNet in the same resource group"
         }
