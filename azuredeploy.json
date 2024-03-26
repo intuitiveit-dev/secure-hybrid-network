@@ -59,7 +59,8 @@
         "mocOnPremTemplate": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/mock-onprem-azuredeploy.json')]",
         "azureVirtualNetworkTemplate": "[if(equals(parameters('windowsVMCount'), 1), uri(deployment().properties.templateLink.uri, 'nestedtemplates/azure-network-azuredeploy.json'), uri(deployment().properties.templateLink.uri, 'nestedtemplates/azure-network-azuredeploy-lb.json'))]",
         "mocOnPremLocalGatewayTemplate": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/mock-onprem-local-gateway.json')]",
-        "azureVirtualNetworkLocalGatewayTemplate": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/azure-network-local-gateway.json')]"
+        "azureVirtualNetworkLocalGatewayTemplate": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/azure-network-local-gateway.json')]",
+        "azureVirtualNetworkSqlVmTemplate": "[uri(deployment().properties.templateLink.uri, 'nestedtemplates/azure-network-azuredeploy-sql.json')]"
     },
     "resources": [
         {
@@ -202,6 +203,25 @@
                     "location": {
                         "value": "[parameters('resourceGrouplocation')]"
                     }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "azureNetworkSqlVm",
+            "resourceGroup": "[parameters('azureNetworkResourceGroup')]",
+            "dependsOn": [
+                "azureNetwork"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('azureVirtualNetworkSqlVmTemplate')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+
                 }
             }
         }
