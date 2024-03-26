@@ -25,6 +25,7 @@
       },
       "existingVirtualNetworkName": {
         "type": "string",
+        "defaultValue": "Sql-Vm",
         "metadata": {
           "description": "Specify the name of an existing VNet in the same resource group"
         }
