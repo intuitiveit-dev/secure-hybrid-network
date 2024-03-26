@@ -159,7 +159,7 @@
     },
     "variables": {
       "networkInterfaceName": "[format('nic-{0}', parameters('virtualMachineName'))]",
-      "networkSecurityGroupName": "[parameters('spokeNetwork').nsgName]",
+      "networkSecurityGroupName": "[parameters('spokeNetwork').subnetNsgName]",
     //   "networkSecurityGroupRules": [
     //     {
     //       "name": "RDP",
