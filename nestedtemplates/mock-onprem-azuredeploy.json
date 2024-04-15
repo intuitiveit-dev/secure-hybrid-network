@@ -95,6 +95,9 @@
             "apiVersion": "2019-11-01",
             "name": "[parameters('mocOnpremGateway').publicIPAddressName]",
             "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard"
+            },
             "properties": {
                 "publicIPAllocationMethod": "Dynamic"
             }
