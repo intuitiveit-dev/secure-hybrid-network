@@ -62,7 +62,9 @@
           "sql2017-ws2019",
           "sql2019-ws2022",
           "SQL2016SP1-WS2016",
-          "SQL2016SP2-WS2016"
+          "SQL2016SP2-WS2016",
+          "SQL2014SP3-WS2012R2",
+          "SQL2014SP2-WS2012R2"
         ],
         "metadata": {
           "description": "Windows Server and SQL Offer"
@@ -158,9 +160,9 @@
     "variables": {
       "networkInterfaceName": "[format('nic-{0}', parameters('virtualMachineName'))]",
       "networkSecurityGroupName": "[parameters('spokeNetwork').subnetNsgName]",
-      "publicIpAddressName": "[format('pip-{0}-{1}', parameters('virtualMachineName'), uniqueString(parameters('virtualMachineName')))]",
-      "publicIpAddressType": "Dynamic",
-      "publicIpAddressSku": "Basic",
+      //"publicIpAddressName": "[format('pip-{0}-{1}', parameters('virtualMachineName'), uniqueString(parameters('virtualMachineName')))]",
+      // "publicIpAddressType": "Dynamic",
+      // "publicIpAddressSku": "Basic",
       "diskConfigurationType": "NEW",
       "nsgId": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
       "subnetRef": "[resourceId(parameters('existingVnetResourceGroup'), 'Microsoft.Network/virtualNetWorks/subnets', parameters('existingVirtualNetworkName'), parameters('existingSubnetName'))]",
@@ -180,18 +182,18 @@
       "maaTenantName": "GuestAttestation"
     },
     "resources": [
-      {
-        "type": "Microsoft.Network/publicIPAddresses",
-        "apiVersion": "2022-01-01",
-        "name": "[variables('publicIpAddressName')]",
-        "location": "[parameters('location')]",
-        "sku": {
-          "name": "[variables('publicIpAddressSku')]"
-        },
-        "properties": {
-          "publicIPAllocationMethod": "[variables('publicIpAddressType')]"
-        }
-      },
+      // {
+      //   "type": "Microsoft.Network/publicIPAddresses",
+      //   "apiVersion": "2022-01-01",
+      //   "name": "[variables('publicIpAddressName')]",
+      //   "location": "[parameters('location')]",
+      //   "sku": {
+      //     "name": "[variables('publicIpAddressSku')]"
+      //   },
+      //   "properties": {
+      //     "publicIPAllocationMethod": "[variables('publicIpAddressType')]"
+      //   }
+      // },
       {
         "type": "Microsoft.Network/networkSecurityGroups",
         "apiVersion": "2022-01-01",
@@ -227,8 +229,8 @@
           }
         },
         "dependsOn": [
-          "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
-          "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
+          "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+          //"[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
         ]
       },
       {
