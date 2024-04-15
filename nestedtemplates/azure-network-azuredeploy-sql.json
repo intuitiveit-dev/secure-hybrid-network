@@ -194,7 +194,17 @@
         "name": "[variables('networkInterfaceName')]",
         "location": "[parameters('location')]",
         "properties": {
-
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('spokeNetwork').name, parameters('spokeNetwork').subnetName)]"
+                            }
+                        }
+                    }
+                ],
           "enableAcceleratedNetworking": true,
           "networkSecurityGroup": {
             "id": "[variables('nsgId')]"
