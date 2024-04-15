@@ -160,24 +160,6 @@
     "variables": {
       "networkInterfaceName": "[format('nic-{0}', parameters('virtualMachineName'))]",
       "networkSecurityGroupName": "[parameters('spokeNetwork').subnetNsgName]",
-    //   "networkSecurityGroupRules": [
-    //     {
-    //       "name": "RDP",
-    //       "properties": {
-    //         "priority": 300,
-    //         "protocol": "Tcp",
-    //         "access": "Allow",
-    //         "direction": "Inbound",
-    //         "sourceAddressPrefix": "*",
-    //         "sourcePortRange": "*",
-    //         "destinationAddressPrefix": "*",
-    //         "destinationPortRange": "3389"
-    //       }
-    //     }
-    //   ],
-      "publicIpAddressName": "[format('pip-{0}-{1}', parameters('virtualMachineName'), uniqueString(parameters('virtualMachineName')))]",
-      "publicIpAddressType": "Dynamic",
-      "publicIpAddressSku": "Basic",
       "diskConfigurationType": "NEW",
       "nsgId": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
       "subnetRef": "[resourceId(parameters('existingVnetResourceGroup'), 'Microsoft.Network/virtualNetWorks/subnets', parameters('existingVirtualNetworkName'), parameters('existingSubnetName'))]",
@@ -198,18 +180,6 @@
     },
     "resources": [
       {
-        "type": "Microsoft.Network/publicIPAddresses",
-        "apiVersion": "2022-01-01",
-        "name": "[variables('publicIpAddressName')]",
-        "location": "[parameters('location')]",
-        "sku": {
-          "name": "[variables('publicIpAddressSku')]"
-        },
-        "properties": {
-          "publicIPAllocationMethod": "[variables('publicIpAddressType')]"
-        }
-      },
-      {
         "type": "Microsoft.Network/networkSecurityGroups",
         "apiVersion": "2022-01-01",
         "name": "[variables('networkSecurityGroupName')]",
@@ -224,28 +194,14 @@
         "name": "[variables('networkInterfaceName')]",
         "location": "[parameters('location')]",
         "properties": {
-          "ipConfigurations": [
-            {
-              "name": "ipconfig1",
-              "properties": {
-                "subnet": {
-                  "id": "[variables('subnetRef')]"
-                },
-                "privateIPAllocationMethod": "Dynamic",
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
-                }
-              }
-            }
-          ],
+
           "enableAcceleratedNetworking": true,
           "networkSecurityGroup": {
             "id": "[variables('nsgId')]"
           }
         },
         "dependsOn": [
-          "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
-          "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
+          "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
         ]
       },
       {
