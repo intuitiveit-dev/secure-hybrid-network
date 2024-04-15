@@ -111,7 +111,7 @@
         "peering-name-spoke-to-hub": "spoke-to-hub",
         "nicNameWeb": "nic-web-server",
         "vmNameWeb": "vm-web-server",
-        "windowsOSVersion": "2012-R2-Datacenter"
+        "windowsOSVersion": "2019-datacenter-gensecond"
     },
     "resources": [
         {
