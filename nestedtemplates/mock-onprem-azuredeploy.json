@@ -96,7 +96,7 @@
             "name": "[parameters('mocOnpremGateway').publicIPAddressName]",
             "location": "[parameters('location')]",
             "sku": {
-                "name": "Standard"
+                "name": "VpnGw1"
             },
             "properties": {
                 "publicIPAllocationMethod": "Static"
