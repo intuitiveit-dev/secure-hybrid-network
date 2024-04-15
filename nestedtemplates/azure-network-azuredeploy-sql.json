@@ -160,7 +160,7 @@
       "networkSecurityGroupName": "[parameters('spokeNetwork').subnetNsgName]",
       "publicIpAddressName": "[format('pip-{0}-{1}', parameters('virtualMachineName'), uniqueString(parameters('virtualMachineName')))]",
       "publicIpAddressType": "Dynamic",
-      "publicIpAddressSku": "VpnGw1",
+      "publicIpAddressSku": "Basic",
       "diskConfigurationType": "NEW",
       "nsgId": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
       "subnetRef": "[resourceId(parameters('existingVnetResourceGroup'), 'Microsoft.Network/virtualNetWorks/subnets', parameters('existingVirtualNetworkName'), parameters('existingSubnetName'))]",
