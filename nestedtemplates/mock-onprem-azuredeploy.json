@@ -96,10 +96,11 @@
             "name": "[parameters('mocOnpremGateway').publicIPAddressName]",
             "location": "[parameters('location')]",
             "sku": {
-                "name": "Standard"
+                "name": "Standard",
+                "tier": "Regional"
             },
             "properties": {
-                "publicIPAllocationMethod": "Dynamic"
+                "publicIPAllocationMethod": "Static"
             }
         },
         {
