@@ -280,9 +280,9 @@
               "vTpmEnabled": "[parameters('vTPM')]"
             },
             "securityType": "TrustedLaunch"
-          },
-          
-                      "resources": [
+          }
+        },
+                    "resources": [
                 {
                     "condition": "[equals(parameters('EnvironmentType'), 'Staging')]",
                     "type": "extensions",
@@ -303,8 +303,7 @@
                     }
 
                 }
-            ]
-        },
+            ],
         "dependsOn": [
           "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
         ]
