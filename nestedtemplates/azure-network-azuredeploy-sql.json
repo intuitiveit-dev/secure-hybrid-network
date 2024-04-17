@@ -105,7 +105,7 @@
       },
       "sqlDataDisksCount": {
         "type": "int",
-        "defaultValue": 2,
+        "defaultValue": 1,
         "maxValue": 8,
         "minValue": 1,
         "metadata": {
@@ -160,9 +160,6 @@
     "variables": {
       "networkInterfaceName": "[format('nic-{0}', parameters('virtualMachineName'))]",
       "networkSecurityGroupName": "[parameters('spokeNetwork').subnetNsgName]",
-      //"publicIpAddressName": "[format('pip-{0}-{1}', parameters('virtualMachineName'), uniqueString(parameters('virtualMachineName')))]",
-      // "publicIpAddressType": "Dynamic",
-      // "publicIpAddressSku": "Basic",
       "diskConfigurationType": "NEW",
       "nsgId": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
       "subnetRef": "[resourceId(parameters('existingVnetResourceGroup'), 'Microsoft.Network/virtualNetWorks/subnets', parameters('existingVirtualNetworkName'), parameters('existingSubnetName'))]",
@@ -182,25 +179,12 @@
       "maaTenantName": "GuestAttestation"
     },
     "resources": [
-      // {
-      //   "type": "Microsoft.Network/publicIPAddresses",
-      //   "apiVersion": "2022-01-01",
-      //   "name": "[variables('publicIpAddressName')]",
-      //   "location": "[parameters('location')]",
-      //   "sku": {
-      //     "name": "[variables('publicIpAddressSku')]"
-      //   },
-      //   "properties": {
-      //     "publicIPAllocationMethod": "[variables('publicIpAddressType')]"
-      //   }
-      // },
       {
         "type": "Microsoft.Network/networkSecurityGroups",
         "apiVersion": "2022-01-01",
         "name": "[variables('networkSecurityGroupName')]",
         "location": "[parameters('location')]",
         "properties": {
-          //"securityRules": "[variables('networkSecurityGroupRules')]"
         }
       },
       {
@@ -217,9 +201,6 @@
                   "id": "[variables('subnetRef')]"
                 },
                  "privateIPAllocationMethod": "Dynamic"
-                // "publicIPAddress": {
-                //   "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
-                // }
               }
             }
           ],
@@ -230,7 +211,6 @@
         },
         "dependsOn": [
           "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-          //"[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
         ]
       },
       {
