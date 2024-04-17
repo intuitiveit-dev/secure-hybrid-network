@@ -2,6 +2,13 @@
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "EnvironmentType": {
+            "type": "string",
+            "allowedValues": [
+                "Staging",
+                "Production"
+            ]
+        },
         "resourceNamePrefix": {
             "type": "string",
             "metadata": {
@@ -137,6 +144,9 @@
                     },
                     "resourceNamePrefix": {
                         "value": "[parameters('resourceNamePrefix')]"
+                    },
+                    "EnvironmentType" : {
+                        "value": "[parameters('EnvironmentType')]"
                     }
                 }
             }
