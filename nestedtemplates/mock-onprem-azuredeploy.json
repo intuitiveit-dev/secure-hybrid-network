@@ -92,15 +92,15 @@
             "comments": "Public IP address for VPN Gateway",
             "condition": "[parameters('configureSitetosite')]",
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2019-11-01",
+            "apiVersion": "2020-08-01",
             "name": "[parameters('mocOnpremGateway').publicIPAddressName]",
             "location": "[parameters('location')]",
             "sku": {
-                "name": "Basic",
-                "tier": "Regional"
+                "name": "Basic"
             },
             "properties": {
-                "publicIPAllocationMethod": "Static"
+                "publicIPAllocationMethod": "Static",
+                "publicIPAddressVersion": "IPv4"
             }
         },
         {
