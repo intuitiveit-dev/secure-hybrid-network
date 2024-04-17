@@ -1038,7 +1038,7 @@
             },
             "resources": [
                 {
-
+                    "condition": "[equals(parameters('EnvironmentType'), 'Production')]",
                     "type": "extensions",
                     "apiVersion": "2019-12-01",
                     "name": "installIIS",
