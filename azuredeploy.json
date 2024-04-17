@@ -4,6 +4,9 @@
     "parameters": {
         "EnvironmentType": {
             "type": "string",
+             "metadata": {
+                "description": "The type of environment being deployed. Staging hosts IIS and SQL on the same virtual machine. Production uses separate IIS and SQL servers"
+            },
             "allowedValues": [
                 "Staging",
                 "Production"
@@ -217,6 +220,7 @@
             }
         },
         {
+            "condition": "[equals(parameters('EnvironmentType'), 'Production')]",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2020-06-01",
             "name": "azureNetworkSqlVm",
@@ -242,6 +246,9 @@
                     },
                     "existingSubnetName": {
                         "value": "[concat('snet-', parameters('resourceNamePrefix'), '-spoke-resources')]"
+                    },
+                    "EnvironmentType": {
+                        "value": "[parameters('EnvironmentType')]"
                     }
                 }
             }

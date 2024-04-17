@@ -9,6 +9,12 @@
       }
     },
     "parameters": {
+        "EnvironmentType": {
+            "type": "string",
+             "metadata": {
+                "description": "The type of environment being deployed. Staging hosts IIS and SQL on the same virtual machine. Production uses separate IIS and SQL servers"
+              }
+        },
         "resourceNamePrefix": {
             "type": "string"
         },
@@ -274,7 +280,30 @@
               "vTpmEnabled": "[parameters('vTPM')]"
             },
             "securityType": "TrustedLaunch"
-          }
+          },
+          
+                      "resources": [
+                {
+                    "condition": "[equals(parameters('EnvironmentType'), 'Staging')]",
+                    "type": "extensions",
+                    "apiVersion": "2019-12-01",
+                    "name": "installIIS",
+                    "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+                    ],
+                    "properties": {
+                        "publisher": "Microsoft.Compute",
+                        "type": "CustomScriptExtension",
+                        "typeHandlerVersion": "1.7",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "commandToExecute": "powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools"
+                        }
+                    }
+
+                }
+            ]
         },
         "dependsOn": [
           "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"

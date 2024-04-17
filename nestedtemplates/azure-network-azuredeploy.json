@@ -1000,6 +1000,7 @@
             }
         },
         {
+            "condition": "[equals(parameters('EnvironmentType'), 'Production')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2019-07-01",
             "name": "[concat(variables('vmNameWeb'), copyIndex())]",
