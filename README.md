@@ -13,8 +13,6 @@ description: This sample deploys a hub and spoke network, a mock on-premises net
 
 # Secure hybrid network
 
-[//][![Build Status](https://ceapex.visualstudio.com/pnp/_apis/build/status/deployment-validation/secure-hybrid-network?branchName=master)](https://ceapex.visualstudio.com/pnp/_build/latest?definitionId=3730&branchName=master)
-
 This sample deploys a hub and spoke network, a mock on-premises network, and connects both with a site-to-site VPN connection. 
 
 Where applicable, each resource is configured to send diagnostics to an Azure Log Analytics instance.
