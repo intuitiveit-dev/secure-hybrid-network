@@ -206,7 +206,8 @@
                 "subnet": {
                   "id": "[variables('subnetRef')]"
                 },
-                 "privateIPAllocationMethod": "Dynamic"
+                  "privateIPAddress": "[concat(split(parameters('spokeNetwork').AddressPrefix, '.')[0], '.', split(parameters('spokeNetwork').AddressPrefix, '.')[1], '.', split(parameters('spokeNetwork').AddressPrefix, '.')[2], if(equals(parameters('EnvironmentType'), 'Staging'), '.7', '.5'))]",
+                 "privateIPAllocationMethod": "Static"
               }
             }
           ],
