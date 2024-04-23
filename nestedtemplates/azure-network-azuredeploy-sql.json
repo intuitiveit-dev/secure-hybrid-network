@@ -26,6 +26,12 @@
                 "subnetNsgName": "fwiis-staging-spoke"
             }
         },
+        "spokeNetworkAddressPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Address space to use for Azure spoke network eg 10.100.0.0/16"
+            }
+        },
       "virtualMachineName": {
         "type": "string",
         "defaultValue": "vm-sql-server",
@@ -206,7 +212,7 @@
                 "subnet": {
                   "id": "[variables('subnetRef')]"
                 },
-                  "privateIPAddress": "[concat(split(parameters('spokeNetwork').AddressPrefix, '.')[0], '.', split(parameters('spokeNetwork').AddressPrefix, '.')[1], '.', split(parameters('spokeNetwork').AddressPrefix, '.')[2], if(equals(parameters('EnvironmentType'), 'Staging'), '.7', '.5'))]",
+                  "privateIPAddress": "[concat(split(parameters('spokeNetworkAddressPrefix'), '.')[0], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[1], '.', split(parameters('spokeNetworkAddressPrefix'), '.')[2], if(equals(parameters('EnvironmentType'), 'Staging'), '.7', '.5'))]",
                  "privateIPAllocationMethod": "Static"
               }
             }

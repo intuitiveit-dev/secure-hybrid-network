@@ -243,6 +243,9 @@
                     "resourceNamePrefix": {
                         "value": "[parameters('resourceNamePrefix')]"
                     },
+                    "spokeNetworkAddressPrefix": {
+                        "value": "[parameters('spokeNetworkAddressPrefix')]"
+                    },
                     "existingSubnetName": {
                         "value": "[concat('snet-', parameters('resourceNamePrefix'), '-spoke-resources')]"
                     },
