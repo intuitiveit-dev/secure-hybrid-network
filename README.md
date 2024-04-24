@@ -41,6 +41,7 @@ az deployment sub create \
 
 | Parameter | Type | Description | Default and properties |
 |---|---|---|--|
+| environmentType | string  | Type of environment to deploy. Staging merges SQL and IIS in the same VM. |
 | resourceNamePrefix | string | Name appended to certain resources within the spoke network (e.g. FWIIS-STAGING) |
 | spokeNetworkAddressPrefix | string | CIDR mask to use for the spoke network (e.g. 10.100.0.0/16) |
 | mocOnPremResourceGroup | string | Name of the moc on-prem resource group. | site-to-site-mock-prem |
