@@ -21,7 +21,6 @@ Where applicable, each resource is configured to send diagnostics to an Azure Lo
 
 For detailed information, see the Implement a secure hybrid network:
 
-> [!div class="nextstepaction"]
 > [Implement a secure hybrid network](https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
 
 ## Deploy sample
