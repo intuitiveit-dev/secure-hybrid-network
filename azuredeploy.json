@@ -76,14 +76,12 @@
         {
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2019-10-01",
-            "name": "[parameters('mocOnPremResourceGroup')]",
-            "location": "[parameters('resourceGrouplocation')]"
+            "name": "[parameters('mocOnPremResourceGroup')]"
         },
         {
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2019-10-01",
-            "name": "[parameters('azureNetworkResourceGroup')]",
-            "location": "[parameters('resourceGrouplocation')]"
+            "name": "[parameters('azureNetworkResourceGroup')]"
         },
         {
             "type": "Microsoft.Resources/deployments",
@@ -107,7 +105,7 @@
                         "value": "[parameters('adminPassword')]"
                     },
                     "location": {
-                        "value": "[parameters('resourceGrouplocation')]"
+                        "value": "[resourceGroup().location]"
                     }
                 }
             }
@@ -134,7 +132,7 @@
                         "value": "[parameters('adminPassword')]"
                     },
                     "location": {
-                        "value": "[parameters('resourceGrouplocation')]"
+                        "value": "[resourceGroup().location]"
                     },
                     "spokeNetworkAddressPrefix": {
                         "value": "[parameters('spokeNetworkAddressPrefix')]"
@@ -183,7 +181,7 @@
                         "value": "[reference('onPremMock').outputs.mocOnpremGatewayName.value]"
                     },
                     "location": {
-                        "value": "[parameters('resourceGrouplocation')]"
+                        "value": "[resourceGroup().location]"
                     }
                 }
             }
@@ -214,7 +212,7 @@
                         "value": "[reference('azureNetwork').outputs.azureGatewayName.value]"
                     },
                     "location": {
-                        "value": "[parameters('resourceGrouplocation')]"
+                        "value": "[resourceGroup().location]"
                     }
                 }
             }
