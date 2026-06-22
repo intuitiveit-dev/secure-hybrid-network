@@ -527,8 +527,8 @@
                     }
                 ],
                 "sku": {
-                    "name": "VpnGw1",
-                    "tier": "VpnGw1"
+                    "name": "AzVpnGw1",
+                    "tier": "AzVpnGw1"
                 },
                 "gatewayType": "Vpn",
                 "vpnType": "RouteBased",
