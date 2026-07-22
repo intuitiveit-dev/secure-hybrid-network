@@ -12,6 +12,9 @@
         "adminPassword": {
             "type": "securestring"
         },
+        "vpnSharedSecret": {
+            "type": "securestring"
+        },
         "windowsVMCount": {
             "type": "int",
             "metadata": {
