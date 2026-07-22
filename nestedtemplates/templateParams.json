@@ -51,6 +51,13 @@
                 "displayName": "Admin Password"
             }
         },
+        "vpnSharedSecret": {
+            "value": "*****************",
+            "metadata": {
+                "description": "The shared secret to use for the VPN tunnel.",
+                "displayName": "VPN Shared Secret"
+            }
+        },
         "windowsVMCount": {
             "value": 1,
             "metadata": {

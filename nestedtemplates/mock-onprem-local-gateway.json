@@ -24,6 +24,9 @@
         },
         "location": {
             "type": "string"
+        },
+        "vpnSharedSecret": {
+            "type": "securestring"
         }
     },
     "resources": [
@@ -60,7 +63,7 @@
                 "connectionType": "IPsec",
                 "connectionProtocol": "IKEv2",
                 "routingWeight": 100,
-                "sharedKey": "123secret",
+                "sharedKey": "[parameters('vpnSharedSecret')]",
                 "enableBgp": false,
                 "useLocalAzureIpAddress": false,
                 "usePolicyBasedTrafficSelectors": false,
