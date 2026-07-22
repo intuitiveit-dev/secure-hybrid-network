@@ -23,7 +23,7 @@
             "type": "string"
         },
         "vpnSharedSecret": {
-            "type": "securedstring"
+            "type": "securestring"
         }
     },
     "resources": [
