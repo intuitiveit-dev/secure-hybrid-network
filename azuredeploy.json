@@ -54,6 +54,12 @@
                 "description": "The admin password for both the Windows and Linux virtual machines."
             }
         },
+        "vpnSharedSecret": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The shared secret to use for the VPN tunnel.",
+            }
+        },
         "resourceGrouplocation": {
             "type": "string",
             "defaultValue": "[deployment().location]"
@@ -108,6 +114,9 @@
                     },
                     "location": {
                         "value": "[parameters('resourceGrouplocation')]"
+                    },
+                    "vpnSharedSecret": {
+                        "value": "[parameters('vpnSharedSecret')]"
                     }
                 }
             }
@@ -150,6 +159,9 @@
                     },
                     "EnvironmentType" : {
                         "value": "[parameters('EnvironmentType')]"
+                    },
+                    "vpnSharedSecret": {
+                        "value": "[parameters('vpnSharedSecret')]"
                     }
                 }
             }
@@ -184,6 +196,9 @@
                     },
                     "location": {
                         "value": "[parameters('resourceGrouplocation')]"
+                    },
+                    "vpnSharedSecret": {
+                        "value": "[parameters('vpnSharedSecret')]"
                     }
                 }
             }
@@ -215,6 +230,9 @@
                     },
                     "location": {
                         "value": "[parameters('resourceGrouplocation')]"
+                    },
+                    "vpnSharedSecret": {
+                        "value": "[parameters('vpnSharedSecret')]"
                     }
                 }
             }
