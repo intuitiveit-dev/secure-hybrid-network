@@ -57,7 +57,7 @@
         "vpnSharedSecret": {
             "type": "securestring",
             "metadata": {
-                "description": "The shared secret to use for the VPN tunnel.",
+                "description": "The shared secret to use for the VPN tunnel."
             }
         },
         "resourceGrouplocation": {
